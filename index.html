@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es" class="h-100">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>II Congreso de Ingeniería 2026</title>
+
+  <!-- Bootstrap 5 (LOCAL, desde tu carpeta vendor) -->
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+
+  <!-- Tus estilos personalizados -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" href="img/logo_32x32.png">
+</head>
+
+<body class="d-flex flex-column h-100">
+
+  <!-- =========================================================
+       WRAPPER GENERAL DE PÁGINA
+       - Aquí metemos la capa del fondo derecho y el contenido.
+       - El wrapper se hace "relative" en CSS para que el fondo
+         absoluto se posicione dentro de toda la página.
+  ========================================================== -->
+  <div class="page-wrap d-flex flex-column min-vh-100">
+
+    <!-- =========================================================
+         FONDO DERECHO (DECORATIVO)
+         - Es una capa detrás del contenido (z-index bajo).
+         - Solo se muestra desde pantallas grandes (d-lg-block),
+           para que en móviles no estorbe (d-none).
+    ========================================================== -->
+    <div class="bg-right d-none d-lg-block"></div>
+
+    <!-- Header cargado por JS -->
+    <div id="header-placeholder"></div>
+
+    <!-- =========================================================
+         CONTENIDO PRINCIPAL
+         - page-content sube el contenido por encima del fondo
+           usando z-index en CSS.
+         - content-padding evita que el header fijo tape el inicio.
+    ========================================================== -->
+    <main class="flex-shrink-0 content-padding page-content">
+
+      <!-- =========================================================
+           HERO PRINCIPAL
+      ========================================================= -->
+      <section class="hero-main my-4">
+    
+        <!-- Izquierda: imagen -->
+        <div class="hero-main__media">
+          <video autoplay muted loop playsinline>
+            <source src="media/Technology Background.mp4" type="video/mp4">
+          </video>
+        </div>
+    
+        <!-- Derecha: branding -->
+        <div class="hero-main__brand">
+          <img src="img/logo-removebg-preview.png" alt="II Congreso de Ingeniería 2026" class="hero-main__logo">
+          <div class="hero-main__divider"></div>
+          <p class="hero-main__subtitle">Santa Cruz de la Sierra · Bolivia</p>
+          <a href="Organizadores.html" class="btn btn-inscripcion fw-bold px-4 py-2 mt-3">Inscripción</a>
+        </div>
+    
+      </section>
+    
+      <!-- =========================================================
+           CARDS DE ACCESO RÁPIDO
+      ========================================================= -->
+      <section class="quick-access">
+        <a href="Bienvenida.html" class="quick-card">
+          <div class="quick-card__img">
+            <img src="img/principal/bienvenida-congreso.png" alt="Bienvenida">
+          </div>
+          <div class="quick-card__body">
+            <p class="quick-card__title">Bienvenida</p>
+            <p class="quick-card__sub">Conozca el Congreso 2026.</p>
+          </div>
+        </a>
+    
+        <a href="Organizadores.html" class="quick-card">
+          <div class="quick-card__img">
+            <img src="img/principal/inscripcion.png" alt="Inscripción">
+          </div>
+          <div class="quick-card__body">
+            <p class="quick-card__title">Inscripción</p>
+            <p class="quick-card__sub">Inscríbase al Congreso.</p>
+          </div>
+        </a>
+    
+        <a href="Ponencias.htm" class="quick-card">
+          <div class="quick-card__img">
+            <img src="img/principal/Ponencias.jpg" alt="Ponencias">
+          </div>
+          <div class="quick-card__body">
+            <p class="quick-card__title">Ponencias</p>
+            <p class="quick-card__sub">Conoce los expositores</p>
+          </div>
+        </a>
+
+        <a href="GuiaTuristica.html" class="quick-card">
+          <div class="quick-card__img">
+            <img src="img/principal/ciudad.png" alt="Santa Cruz">
+          </div>
+          <div class="quick-card__body">
+            <p class="quick-card__title">Santa Cruz</p>
+            <p class="quick-card__sub">Descubra la ciudad.</p>
+          </div>
+        </a>
+      </section>  
+    </main>
+    <!-- Footer cargado por JS -->
+    <div id="footer-placeholder" class="mt-auto"></div>
+
+  </div>
+
+  <!-- =========================================================
+       SCRIPTS
+       - Usa el Bootstrap local para mantener todo consistente.
+       - layout.js es tu script para insertar header/footer.
+  ========================================================== -->
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/layout.js"></script>
+</body>
+</html>
