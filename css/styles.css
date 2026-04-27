@@ -552,3 +552,440 @@ main.page-content {
     font-size: 0.85rem;
   }
 }
+
+/* =========================================================
+   PÁGINA: PONENCIAS
+   - Estilos movidos desde ponencias.html
+   - Todo queda centralizado en css/styles.css
+   - Reglas scoped con .page-ponencias para no afectar header,
+     footer ni otras páginas que heredan este mismo archivo
+========================================================= */
+
+.page-ponencias {
+  --ponencias-accent: #1a5f3d;
+  --ponencias-accent-2: #2d8a5f;
+  --ponencias-accent-soft: #e8f4f0;
+  --ponencias-text-main: #0f2438;
+  --ponencias-text-muted: #5f6b7a;
+  --ponencias-card-radius: 22px;
+  --ponencias-shadow-soft: 0 16px 40px rgba(15, 36, 56, 0.10);
+  --ponencias-shadow-featured: 0 20px 45px rgba(26, 95, 61, 0.16);
+}
+
+/* ---------- Encabezados internos ---------- */
+.page-ponencias .section-intro {
+  margin-bottom: 1.5rem;
+}
+
+.page-ponencias .section-title {
+  font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+  font-weight: 800;
+  color: var(--ponencias-text-main);
+  margin-bottom: .5rem;
+}
+
+.page-ponencias .regular-section-title {
+  margin-top: .5rem;
+  margin-bottom: 1.8rem;
+}
+
+.page-ponencias .regular-section-title h3 {
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  font-weight: 800;
+  color: var(--ponencias-text-main);
+  margin-bottom: .35rem;
+}
+
+/* ---------- Bloque de ponencias destacadas ---------- */
+.page-ponencias .special-speakers-block {
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.page-ponencias .special-speakers-frame {
+  background: linear-gradient(180deg, #ffffff 0%, #f9fbfe 100%);
+  border: 1px solid rgba(26, 95, 61, 0.08);
+  border-radius: 28px;
+  padding: 2rem;
+  box-shadow: var(--ponencias-shadow-soft);
+}
+
+/* ---------- Hero de Ponencias ---------- */
+.page-ponencias .hero-strip {
+  display: flex;
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
+  overflow: hidden;
+  min-height: 190px;
+  height: 300px;
+  background: linear-gradient(135deg, var(--ponencias-accent), var(--ponencias-accent-2));
+  position: relative;
+  z-index: 2;
+}
+
+.page-ponencias .hero-strip__media {
+  flex: 0 0 58%;
+  min-height: 190px;
+}
+
+.page-ponencias .hero-strip__media video,
+.page-ponencias .hero-strip__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Se redefine el panel solo para Ponencias para evitar heredar el fondo global */
+.page-ponencias .hero-strip__panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.2rem 2.4rem;
+  background: linear-gradient(
+    90deg,
+    rgba(26, 95, 61, 0.95) 0%,
+    rgba(45, 138, 95, 0.95) 100%
+  );
+}
+
+.page-ponencias .hero-strip__title {
+  margin: 0;
+  color: #fff;
+  font-weight: 800;
+  font-size: clamp(1.4rem, 2.8vw, 2.8rem);
+}
+
+/* ---------- Tabs / Filtros ---------- */
+.page-ponencias .date-tabs {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.page-ponencias .date-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.9rem 2rem;
+  border-radius: 14px;
+  border: 2px solid rgba(26, 95, 61, 0.2);
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  color: #374151;
+  min-width: 130px;
+}
+
+.page-ponencias .date-tab:hover {
+  border-color: var(--ponencias-accent);
+  color: var(--ponencias-accent);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(26, 95, 61, 0.12);
+}
+
+.page-ponencias .date-tab.active {
+  background: linear-gradient(135deg, var(--ponencias-accent), var(--ponencias-accent-2));
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 6px 24px rgba(26, 95, 61, 0.3);
+  transform: translateY(-3px);
+}
+
+.page-ponencias .date-tab__day {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.page-ponencias .date-tab__month {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-top: 0.2rem;
+  text-align: center;
+}
+
+/* ---------- Tarjetas de ponencias ---------- */
+.page-ponencias .workshop-card {
+  border-radius: var(--ponencias-card-radius);
+  overflow: hidden;
+  background: #fff;
+  transition: transform .28s ease, box-shadow .28s ease, background .28s ease;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+  height: 100%;
+}
+
+.page-ponencias .workshop-card:hover {
+  transform: translateY(-6px);
+  background: #fff !important;
+  box-shadow: 0 18px 38px rgba(15, 23, 42, 0.12) !important;
+}
+
+.page-ponencias .workshop-card .card-body {
+  padding-top: 1.5rem !important;
+  background: transparent;
+}
+
+.page-ponencias .workshop-card:hover .card-body {
+  background: transparent;
+}
+
+.page-ponencias .workshop-img {
+  width: 100%;
+  height: 290px;
+  object-fit: cover;
+  display: block;
+  background: #edf2f7;
+}
+
+.page-ponencias .workshop-card .card-title {
+  color: var(--ponencias-text-main);
+  line-height: 1.35;
+  min-height: 70px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.page-ponencias .workshop-card:hover .card-title {
+  color: var(--ponencias-text-main);
+}
+
+.page-ponencias .workshop-card .card-text {
+  color: var(--ponencias-text-muted);
+  font-size: .95rem;
+}
+
+.page-ponencias .workshop-card:hover .card-text {
+  color: var(--ponencias-text-muted);
+}
+
+.page-ponencias .speaker-subtitle {
+  font-size: 0.9rem;
+  color: var(--ponencias-text-muted);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.page-ponencias .workshop-card .btn {
+  border-width: 1.5px;
+  font-weight: 600;
+  transition: all .25s ease;
+  border-color: var(--ponencias-accent);
+  color: var(--ponencias-accent);
+  background: transparent;
+}
+
+.page-ponencias .workshop-card .btn:hover {
+  transform: translateY(-1px);
+  background: var(--ponencias-accent);
+  border-color: var(--ponencias-accent);
+  color: #fff;
+}
+
+/* ---------- Tarjetas destacadas ---------- */
+.page-ponencias .workshop-card--featured {
+  position: relative;
+  border: 2px solid var(--ponencias-accent) !important;
+  box-shadow: var(--ponencias-shadow-featured) !important;
+  background: linear-gradient(180deg, #ffffff 0%, #f0faf8 100%);
+}
+
+.page-ponencias .workshop-card--featured:hover {
+  background: linear-gradient(180deg, #ffffff 0%, #f0faf8 100%) !important;
+}
+
+.page-ponencias .workshop-card--featured::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--ponencias-card-radius);
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(45, 138, 95, .35), rgba(26, 95, 61, .08));
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+
+.page-ponencias .featured-ribbon {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 4;
+  background: linear-gradient(135deg, var(--ponencias-accent), var(--ponencias-accent-2));
+  color: #fff;
+  padding: .5rem .95rem;
+  border-radius: 999px;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 22px rgba(26, 95, 61, .28);
+}
+
+.page-ponencias .workshop-card--featured .card-title,
+.page-ponencias .workshop-card--featured:hover .card-title {
+  color: var(--ponencias-accent);
+  font-size: 1.08rem;
+  min-height: 62px;
+  font-weight: 700;
+}
+
+.page-ponencias .workshop-card--featured .card-text,
+.page-ponencias .workshop-card--featured:hover .card-text {
+  color: #334155;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* ---------- Modal de ponente ---------- */
+.page-ponencias .speaker-modal-content {
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.page-ponencias .speaker-modal__img {
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+  border-radius: 18px;
+  background: #edf2f7;
+}
+
+.page-ponencias .speaker-modal__name {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--ponencias-text-main);
+  margin-bottom: .35rem;
+}
+
+.page-ponencias .speaker-modal__title {
+  color: var(--ponencias-accent);
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: .8rem;
+}
+
+.page-ponencias .speaker-modal__meta {
+  color: var(--ponencias-text-muted);
+  margin-bottom: 1rem;
+}
+
+.page-ponencias .speaker-schedule-card {
+  border: 1px solid rgba(26, 95, 61, .08);
+  border-radius: 16px;
+  padding: 1rem;
+  background: #f8fbff;
+  margin-bottom: .9rem;
+}
+
+.page-ponencias .speaker-schedule-card:last-child {
+  margin-bottom: 0;
+}
+
+.page-ponencias .speaker-schedule-card__day {
+  display: inline-block;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--ponencias-accent);
+  background: var(--ponencias-accent-soft);
+  border-radius: 999px;
+  padding: .35rem .7rem;
+  margin-bottom: .65rem;
+}
+
+.page-ponencias .speaker-schedule-card__time {
+  font-weight: 700;
+  color: var(--ponencias-text-main);
+  margin-bottom: .3rem;
+}
+
+.page-ponencias .speaker-schedule-card__topic {
+  color: var(--ponencias-text-muted);
+  line-height: 1.55;
+  margin-bottom: 0;
+}
+
+.page-ponencias .modal-close-x {
+  border: 0;
+  background: transparent;
+  color: var(--ponencias-text-main);
+  font-size: 2rem;
+  line-height: 1;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s ease, transform .2s ease, opacity .2s ease;
+}
+
+.page-ponencias .modal-close-x:hover {
+  background: rgba(26, 95, 61, 0.08);
+  transform: scale(1.05);
+}
+
+.page-ponencias .modal-close-x:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(26, 95, 61, 0.18);
+}
+
+/* ---------- Utilidades de la página ---------- */
+.page-ponencias .hidden-by-filter {
+  display: none !important;
+}
+
+/* ---------- Responsive Ponencias ---------- */
+@media (max-width: 991.98px) {
+  .page-ponencias .special-speakers-frame {
+    padding: 1.25rem;
+  }
+
+  .page-ponencias .workshop-img {
+    height: 280px;
+  }
+
+  .page-ponencias .hero-strip {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .page-ponencias .hero-strip__media {
+    flex-basis: auto;
+    height: 210px;
+  }
+
+  .page-ponencias .hero-strip__panel {
+    padding: 1.4rem;
+  }
+
+  .page-ponencias .date-tab {
+    min-width: 110px;
+    padding: 0.8rem 1.4rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .page-ponencias .workshop-img {
+    height: 260px;
+  }
+
+  .page-ponencias .workshop-card .card-body {
+    padding-top: 1.5rem !important;
+  }
+}
