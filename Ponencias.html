@@ -33,34 +33,20 @@
 
         <!-- FILTROS POR SESIÓN -->
         <div class="date-tabs ponencias-tabs mb-5">
-          <button class="date-tab date-tab--all active" onclick="filterPonencias('all', this)">
+          <button type="button" class="date-tab date-tab--all active" onclick="filterPonencias('all', this)">
             <span class="date-tab__day">Todas</span>
-            <!--<span class="date-tab__month">Sesiones</span>-->
           </button>
 
-          <button class="date-tab" onclick="filterPonencias('manana', this)">
+          <button type="button" class="date-tab" onclick="filterPonencias('manana', this)">
             <span class="date-tab__day">Mañana</span>
-            <!--<span class="date-tab__month">09:10 - 12:25</span>-->
           </button>
 
-          <button class="date-tab" onclick="filterPonencias('noche', this)">
+          <button type="button" class="date-tab" onclick="filterPonencias('noche', this)">
             <span class="date-tab__day">Noche</span>
-            <!--<span class="date-tab__month">19:10 - 21:20</span>-->
           </button>
         </div>
 
-        <!-- INVITADOS ESPECIALES -->
-        <section class="special-speakers-block" id="special-speakers-section">
-          <div class="section-intro">
-            <h4 class="section-title">Ponencias Destacadas</h4>
-          </div>
-
-          <div class="special-speakers-frame">
-            <div class="row g-4" id="featured-speakers-grid"></div>
-          </div>
-        </section>
-
-        <!-- RESTO DE PONENCIAS -->
+        <!-- TODAS LAS PONENCIAS -->
         <section id="regular-speakers-section">
           <div class="regular-section-title">
             <h3>Ponencias</h3>
@@ -115,8 +101,7 @@
 
     const speakers = [
       {
-        name: 'Ing. Kenji Kawaida',
-        featured: true,
+        name: 'PhD(c). Kenji Kawaida',
         session: 'manana',
         image: 'img/ponencias/kenji_kawaida.jpg',
         academicTitle: 'Doctorante en Ciencias de la Computación',
@@ -127,8 +112,7 @@
         ]
       },
       {
-        name: 'Mgtr. Ernesto Soto Roca',
-        featured: true,
+        name: 'PhD(c). Ernesto Soto Roca',
         session: 'manana',
         image: 'img/ponencias/ernesto_soto.jpg',
         academicTitle: 'Doctorante en Ciencias de la Computación',
@@ -139,8 +123,7 @@
         ]
       },
       {
-        name: 'Mgtr. Alejandro Pereyra Chavarría',
-        featured: true,
+        name: 'Msc. Alejandro Pereyra Chavarría',
         session: 'manana',
         image: 'img/ponencias/alejandro_pereyra.jpg',
         academicTitle: 'Magíster en Administración de Negocios',
@@ -151,8 +134,7 @@
         ]
       },
       {
-        name: 'Ing. Leonardo Vargas Peña',
-        featured: false,
+        name: 'PhD(c). Leonardo Vargas Peña',
         session: 'manana',
         image: 'img/ponencias/leonardo_vargas.jpg',
         academicTitle: 'Doctorante en Ciencias Exactas y tecnología',
@@ -164,7 +146,6 @@
       },
       {
         name: 'Ing. John Christian Salas Cabrera',
-        featured: false,
         session: 'manana',
         image: 'img/ponencias/john_salas.jpg',
         academicTitle: 'Ingeniero Petrolero',
@@ -175,8 +156,7 @@
         ]
       },
       {
-        name: 'Mgtr. Jimmy Nataniel Requena Llorentty',
-        featured: false,
+        name: 'MSc. Jimmy Nataniel Requena Llorentty',
         session: 'noche',
         image: 'img/ponencias/jimmy_requena.jpg',
         academicTitle: 'MSc. en Ingeniería Matemática e Informática',
@@ -187,8 +167,7 @@
         ]
       },
       {
-        name: 'Ing. Edgar Jaldin Torrico',
-        featured: false,
+        name: 'PhD(c). Edgar Jaldin Torrico',
         session: 'noche',
         image: 'img/ponencias/edgar_jaldin.jpg',
         academicTitle: 'Doctorante en Ciencias de la Computación',
@@ -200,7 +179,6 @@
       },
       {
         name: 'Ing. Kevin Ronald López Orellana',
-        featured: false,
         session: 'noche',
         image: 'img/ponencias/kevin_lopez.jpg',
         academicTitle: 'Ingeniero en Sistemas',
@@ -239,33 +217,17 @@
       return speaker.name;
     }
 
-    function createFeaturedCard(speaker, index) {
-      return `
-        <div class="col-12 col-md-6 col-lg-4 speaker-item">
-          <div class="card workshop-card workshop-card--featured h-100 border-0">
-            <div class="position-relative">
-              <span class="featured-ribbon">Ponencia Destacada</span>
-              <img src="${escapeHtml(speaker.image || fallbackImg)}" class="card-img-top workshop-img" alt="${escapeHtml(speaker.name)}" onerror="this.src='${fallbackImg}'">
-            </div>
-            <div class="card-body p-4 d-flex flex-column">
-              <div class="speaker-subtitle">${escapeHtml(speaker.academicTitle)}</div>
-              <h5 class="card-title fw-bold">${escapeHtml(getCardTitle(speaker))}</h5>
-              <p class="card-text flex-grow-1 mb-0">${escapeHtml(getCardSubtitle(speaker))}</p>
-              <div class="d-flex justify-content-end mt-3">
-                <button type="button" class="btn btn-sm rounded-pill px-4" onclick="openSpeakerModal(${index})">Leer más</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      `;
-    }
-
     function createRegularCard(speaker, index) {
       return `
         <div class="col-12 col-md-6 col-lg-3 speaker-item">
           <div class="card workshop-card h-100 border-0 shadow-sm">
             <div class="position-relative">
-              <img src="${escapeHtml(speaker.image || fallbackImg)}" class="card-img-top workshop-img" alt="${escapeHtml(speaker.name)}" onerror="this.src='${fallbackImg}'">
+              <img 
+                src="${escapeHtml(speaker.image || fallbackImg)}" 
+                class="card-img-top workshop-img" 
+                alt="${escapeHtml(speaker.name)}" 
+                onerror="this.onerror=null; this.src='${fallbackImg}'"
+              >
             </div>
             <div class="card-body p-4 d-flex flex-column">
               <div class="speaker-subtitle">${escapeHtml(speaker.academicTitle)}</div>
@@ -281,23 +243,14 @@
     }
 
     function renderSpeakers() {
-      const featuredGrid = document.getElementById('featured-speakers-grid');
       const regularGrid = document.getElementById('regular-speakers-grid');
 
-      const visibleFeatured = speakers.filter(s => s.featured && speakerMatchesFilter(s));
-      const visibleRegular = speakers.filter(s => !s.featured && speakerMatchesFilter(s));
+      const visibleSpeakers = speakers.filter(speakerMatchesFilter);
 
-      featuredGrid.innerHTML = visibleFeatured.map((speaker, index) => {
-        const realIndex = speakers.findIndex(item => item.name === speaker.name);
-        return createFeaturedCard(speaker, realIndex);
-      }).join('');
-
-      regularGrid.innerHTML = visibleRegular.map((speaker) => {
+      regularGrid.innerHTML = visibleSpeakers.map((speaker) => {
         const realIndex = speakers.findIndex(item => item.name === speaker.name);
         return createRegularCard(speaker, realIndex);
       }).join('');
-
-      document.getElementById('special-speakers-section').style.display = visibleFeatured.length ? '' : 'none';
     }
 
     function filterPonencias(session, btn) {
@@ -325,12 +278,16 @@
 
     function openSpeakerModal(index) {
       const speaker = speakers[index];
-      if (!speaker) return;
+      if (!speaker || !speakerModal) return;
 
-      document.getElementById('modalSpeakerImage').src = speaker.image || fallbackImg;
-      document.getElementById('modalSpeakerImage').onerror = function () {
+      const modalImage = document.getElementById('modalSpeakerImage');
+
+      modalImage.onerror = function () {
+        this.onerror = null;
         this.src = fallbackImg;
       };
+
+      modalImage.src = speaker.image || fallbackImg;
 
       document.getElementById('modalSpeakerName').textContent = speaker.name;
       document.getElementById('modalSpeakerTitle').textContent = speaker.mainTitle;
