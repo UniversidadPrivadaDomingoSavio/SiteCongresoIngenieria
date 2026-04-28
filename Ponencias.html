@@ -20,7 +20,7 @@
 
       <section class="hero-strip my-4">
         <div class="hero-strip__media">
-          <video autoplay muted loop playsinline>
+          <video autoplay muted loop playsinline preload="metadata">
             <source src="media/Technology Background.mp4" type="video/mp4">
           </video>
         </div>
@@ -108,7 +108,11 @@
         mainTitle: 'Del modelo general al sistema experto: Agentes inteligentes para resolver problemas reales en ingeniería',
         profile: 'Consultor de software con 13 años de experiencia en proyectos nacionales e internacionales. Especializado en desarrollo móvil, machine learning y procesamiento de lenguaje natural (NLP). Conferencista y docente de posgrado.',
         schedules: [
-          { sessionLabel: 'Sesión de la Mañana', time: '09:10 - 09:45', title: 'Del modelo general al sistema experto: Agentes inteligentes para resolver problemas reales en ingeniería' }
+          {
+            sessionLabel: 'Sesión de la Mañana',
+            time: '09:10 - 09:45',
+            title: 'Del modelo general al sistema experto: Agentes inteligentes para resolver problemas reales en ingeniería'
+          }
         ]
       },
       {
@@ -119,7 +123,11 @@
         mainTitle: 'Scrum evolucionando con la IA',
         profile: 'Magíster en Ingeniería de Software. Cuenta con certificación internacional SCRUM Master y formación en gestión de proyectos. Actualmente ocupa el cargo de Director de Investigación y Calidad Académica en UPDS Santa Cruz.',
         schedules: [
-          { sessionLabel: 'Sesión de la Mañana', time: '09:50 - 10:25', title: 'Scrum evolucionando con la IA' }
+          {
+            sessionLabel: 'Sesión de la Mañana',
+            time: '09:50 - 10:25',
+            title: 'Scrum evolucionando con la IA'
+          }
         ]
       },
       {
@@ -130,7 +138,11 @@
         mainTitle: 'Emprendimientos y medios de pago en Blockchain',
         profile: 'Especialista en logística y comercio internacional con 15 años de experiencia en operaciones en mercados como China y Estados Unidos, optimizando procesos desde la producción hasta la distribución final.',
         schedules: [
-          { sessionLabel: 'Sesión de la Mañana', time: '10:30 - 11:05', title: 'Emprendimientos y medios de pago en Blockchain' }
+          {
+            sessionLabel: 'Sesión de la Mañana',
+            time: '10:30 - 11:05',
+            title: 'Emprendimientos y medios de pago en Blockchain'
+          }
         ]
       },
       {
@@ -141,7 +153,11 @@
         mainTitle: 'Modelo pedagógico adaptativo basado en IA, para el aprendizaje de programación',
         profile: 'Director de la carrera de Ingeniería en Sistemas (UAGRM) y experto en Seguridad Informática con 20 años de experiencia. Investigador en IA aplicada a la educación y docente con formación de postgrado en España.',
         schedules: [
-          { sessionLabel: 'Sesión de la Mañana', time: '11:10 - 11:45', title: 'Modelo pedagógico adaptativo basado en IA, para el aprendizaje de programación' }
+          {
+            sessionLabel: 'Sesión de la Mañana',
+            time: '11:10 - 11:45',
+            title: 'Modelo pedagógico adaptativo basado en IA, para el aprendizaje de programación'
+          }
         ]
       },
       {
@@ -152,7 +168,11 @@
         mainTitle: 'Trading e inversiones en los mercados financieros',
         profile: 'Ingeniero Petrolero y Mecánico Industrial, con amplia experiencia en mantenimiento industrial y gestión pública. Emprendedor y capacitador profesional en inversiones internacional y compras con Criptomonedas.',
         schedules: [
-          { sessionLabel: 'Sesión de la Mañana', time: '11:50 - 12:25', title: 'Trading e inversiones en los mercados financieros' }
+          {
+            sessionLabel: 'Sesión de la Mañana',
+            time: '11:50 - 12:25',
+            title: 'Trading e inversiones en los mercados financieros'
+          }
         ]
       },
       {
@@ -163,7 +183,11 @@
         mainTitle: 'Operadores que nunca duermen: Agentes Inteligentes para Fallbacks',
         profile: 'Consultor y Scrum Master con más de 10 años de experiencia en implementación de sistemas ERP (SAP, Oracle), enfocado en transformación digital, gestión ágil, Big data y optimización de procesos empresariales con tecnología.',
         schedules: [
-          { sessionLabel: 'Sesión de la Noche', time: '19:10 - 19:50', title: 'Operadores que nunca duermen: Agentes Inteligentes para Fallbacks' }
+          {
+            sessionLabel: 'Sesión de la Noche',
+            time: '19:10 - 19:50',
+            title: 'Operadores que nunca duermen: Agentes Inteligentes para Fallbacks'
+          }
         ]
       },
       {
@@ -174,7 +198,11 @@
         mainTitle: 'Desarrollando soluciones de IA para Europa desde Bolivia: Retos y aprendizajes',
         profile: 'Especialista en ciencia de datos con formación en Italia, experto en big data, machine learning, visualización de datos y analítica avanzada para el ámbito empresarial y tecnológico.',
         schedules: [
-          { sessionLabel: 'Sesión de la Noche', time: '19:55 - 20:35', title: 'Desarrollando soluciones de IA para Europa desde Bolivia: Retos y aprendizajes' }
+          {
+            sessionLabel: 'Sesión de la Noche',
+            time: '19:55 - 20:35',
+            title: 'Desarrollando soluciones de IA para Europa desde Bolivia: Retos y aprendizajes'
+          }
         ]
       },
       {
@@ -185,13 +213,18 @@
         mainTitle: 'Blockchain y Criptomonedas, emprendimientos de alto impacto',
         profile: 'Fundador y líder de startups en Latinoamérica, con más de 8 años de experiencia en desarrollo de software. Enfocado en innovación, emprendimiento tecnológico y soluciones digitales con impacto empresarial.',
         schedules: [
-          { sessionLabel: 'Sesión de la Noche', time: '20:40 - 21:20', title: 'Blockchain y Criptomonedas, emprendimientos de alto impacto' }
+          {
+            sessionLabel: 'Sesión de la Noche',
+            time: '20:40 - 21:20',
+            title: 'Blockchain y Criptomonedas, emprendimientos de alto impacto'
+          }
         ]
       }
     ];
 
     function escapeHtml(text) {
       if (!text) return '';
+
       return text
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
@@ -206,6 +239,7 @@
 
     function speakerMatchesFilter(speaker) {
       if (currentFilter === 'all') return true;
+
       return speaker.session === currentFilter;
     }
 
@@ -219,7 +253,7 @@
 
     function createRegularCard(speaker, index) {
       return `
-        <div class="col-12 col-md-6 col-lg-3 speaker-item">
+        <div class="col-12 col-md-6 col-lg-4 speaker-item">
           <div class="card workshop-card h-100 border-0 shadow-sm">
             <div class="position-relative">
               <img 
@@ -229,12 +263,16 @@
                 onerror="this.onerror=null; this.src='${fallbackImg}'"
               >
             </div>
+
             <div class="card-body p-4 d-flex flex-column">
               <div class="speaker-subtitle">${escapeHtml(speaker.academicTitle)}</div>
               <h5 class="card-title fw-bold">${escapeHtml(getCardTitle(speaker))}</h5>
               <p class="card-text small flex-grow-1 mb-0">${escapeHtml(getCardSubtitle(speaker))}</p>
+
               <div class="d-flex justify-content-end mt-3">
-                <button type="button" class="btn btn-sm rounded-pill px-4" onclick="openSpeakerModal(${index})">Leer más</button>
+                <button type="button" class="btn btn-sm rounded-pill px-4" onclick="openSpeakerModal(${index})">
+                  Leer más
+                </button>
               </div>
             </div>
           </div>
@@ -271,7 +309,9 @@
         <div class="speaker-schedule-card">
           <div class="speaker-schedule-card__day">${escapeHtml(item.sessionLabel)}</div>
           <div class="speaker-schedule-card__time">Horario: ${escapeHtml(item.time)}</div>
-          <p class="speaker-schedule-card__topic"><strong>Tema:</strong> ${escapeHtml(item.title)}</p>
+          <p class="speaker-schedule-card__topic">
+            <strong>Tema:</strong> ${escapeHtml(item.title)}
+          </p>
         </div>
       `).join('');
     }
@@ -291,10 +331,12 @@
 
       document.getElementById('modalSpeakerName').textContent = speaker.name;
       document.getElementById('modalSpeakerTitle').textContent = speaker.mainTitle;
+
       document.getElementById('modalSpeakerMeta').innerHTML = `
         <strong>Formación:</strong> ${escapeHtml(speaker.academicTitle)}<br>
         <strong>Perfil:</strong> ${escapeHtml(speaker.profile)}
       `;
+
       document.getElementById('modalSpeakerSchedule').innerHTML = buildScheduleHtml(speaker);
 
       speakerModal.show();
