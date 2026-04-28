@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es" class="h-100">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cronograma · Congreso de Inteligencia Artificial y Tecnologías Digitales para la Innovación</title>
+
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" href="img/logo_32x32.png">
+</head>
+
+<body class="page-cronograma d-flex flex-column h-100">
+
+  <div class="page-wrap d-flex flex-column min-vh-100">
+    <div class="bg-right d-none d-lg-block"></div>
+
+    <div id="header-placeholder"></div>
+
+    <main class="flex-shrink-0 content-padding page-content">
+
+      <section class="hero-strip my-4">
+        <div class="hero-strip__media">
+          <video autoplay muted loop playsinline>
+            <source src="media/Technology Background.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="hero-strip__panel">
+          <h2 class="hero-strip__title">Cronograma</h2>
+        </div>
+      </section>
+
+      <div class="cronograma-wrap">
+
+        <div class="cronograma-toolbar">
+          <div class="cronograma-toolbar__info">
+            <div class="cronograma-toolbar__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M7 21H17C18.1 21 19 20.1 19 19V8L14 3H7C5.9 3 5 3.9 5 5V19C5 20.1 5.9 21 7 21Z"
+                      stroke="currentColor" stroke-width="1.7" fill="currentColor" opacity="0.18"/>
+                <path d="M13 3V9H19" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                <path d="M9 13h6M9 17h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <div>
+              <p class="cronograma-toolbar__title">Cronograma Oficial</p>
+              <p class="cronograma-toolbar__meta">
+                <span class="badge-pdf">PDF</span>
+                8.36 MB
+              </p>
+            </div>
+          </div>
+
+          <a href="archivos/Cronograma Congreso.pdf"
+             target="_blank"
+             rel="noopener"
+             download="Cronograma-Congreso-2026.pdf"
+             class="btn-dl">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+              <path d="M12 4v12m0 0l-3.5-3.5M12 16l3.5-3.5"
+                    stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 18h16" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
+            </svg>
+            Descargar PDF
+          </a>
+        </div>
+
+        <div class="pdf-viewer-frame">
+          <div id="pdf-loading" class="pdf-loading">
+            Cargando vista previa del documento...
+          </div>
+
+          <div id="pdf-error" class="pdf-error d-none">
+            <div>No se pudo cargar la vista previa del PDF.</div>
+
+            <a href="media/cronograma.pdf"
+               target="_blank"
+               rel="noopener"
+               download="Cronograma-Congreso-2026.pdf"
+               class="btn-dl">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+                <path d="M12 4v12m0 0l-3.5-3.5M12 16l3.5-3.5"
+                      stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4 18h16" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
+              </svg>
+              Abrir / Descargar PDF
+            </a>
+          </div>
+
+          <div id="pdf-render-area" class="pdf-render-area d-none"></div>
+        </div>
+
+      </div>
+    </main>
+
+    <div id="footer-placeholder" class="mt-auto"></div>
+  </div>
+
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/layout.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+    const pdfUrl = "media/cronograma.pdf";
+    const loadingEl = document.getElementById("pdf-loading");
+    const errorEl = document.getElementById("pdf-error");
+    const renderAreaEl = document.getElementById("pdf-render-area");
+
+    async function renderPDF() {
+      try {
+        const pdf = await pdfjsLib.getDocument(pdfUrl).promise;
+
+        loadingEl.classList.add("d-none");
+        renderAreaEl.classList.remove("d-none");
+
+        const containerWidth = renderAreaEl.clientWidth || 800;
+        const isMobile = window.innerWidth <= 767;
+
+        for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+          const page = await pdf.getPage(pageNum);
+
+          const unscaledViewport = page.getViewport({ scale: 1 });
+          const horizontalPadding = isMobile ? 24 : 40;
+          const targetWidth = Math.max(280, containerWidth - horizontalPadding);
+          const scale = targetWidth / unscaledViewport.width;
+
+          const viewport = page.getViewport({ scale });
+
+          const pageWrapper = document.createElement("div");
+          pageWrapper.className = "pdf-page";
+
+          const canvas = document.createElement("canvas");
+          const context = canvas.getContext("2d");
+
+          const outputScale = window.devicePixelRatio || 1;
+
+          canvas.width = Math.floor(viewport.width * outputScale);
+          canvas.height = Math.floor(viewport.height * outputScale);
+          canvas.style.width = Math.floor(viewport.width) + "px";
+          canvas.style.height = Math.floor(viewport.height) + "px";
+
+          const transform = outputScale !== 1
+            ? [outputScale, 0, 0, outputScale, 0, 0]
+            : null;
+
+          pageWrapper.appendChild(canvas);
+          renderAreaEl.appendChild(pageWrapper);
+
+          await page.render({
+            canvasContext: context,
+            viewport: viewport,
+            transform: transform
+          }).promise;
+        }
+      } catch (error) {
+        console.error("Error cargando PDF:", error);
+        loadingEl.classList.add("d-none");
+        renderAreaEl.classList.add("d-none");
+        errorEl.classList.remove("d-none");
+      }
+    }
+
+    renderPDF();
+  </script>
+</body>
+</html>
