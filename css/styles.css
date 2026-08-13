@@ -13,9 +13,10 @@
   --color-accent-dark: #009e8e;
 }
 
-html, body {
-    height: 100%;
-    background-color: #f8f9fa;
+html,
+body {
+  height: 100%;
+  background-color: #f8f9fa;
 }
 
 /* =========================================================
@@ -43,9 +44,9 @@ html, body {
 .custom-navbar {
   background-color: black;
   top: 35px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .navbar-nav {
@@ -53,13 +54,17 @@ html, body {
 }
 
 .header-logo {
-  height: 80px;
-  width: 250px;
+  height: 90px;
+  width: 150px;
   display: block;
 }
 
 .btn-inscripcion {
-  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-dark));
+  background: linear-gradient(
+    90deg,
+    var(--color-accent),
+    var(--color-accent-dark)
+  );
   color: #ffffff;
   border: none;
   border-radius: 8px;
@@ -68,7 +73,11 @@ html, body {
 }
 
 .btn-inscripcion:hover {
-  background: linear-gradient(90deg, var(--color-accent-dark), var(--color-primary-deep));
+  background: linear-gradient(
+    90deg,
+    var(--color-accent-dark),
+    var(--color-primary-deep)
+  );
   color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 0 15px rgba(0, 180, 216, 0.6);
@@ -91,37 +100,37 @@ html, body {
 }
 
 .footer-logo-img {
-    height: auto;
-    max-height: 150px;
-    width: auto;
-    display: block;
-    transition: transform 0.3s ease;
+  height: auto;
+  max-height: 150px;
+  width: auto;
+  display: block;
+  transition: transform 0.3s ease;
 }
 
 .footer-logo-img:hover {
-    transform: scale(1.03);
+  transform: scale(1.03);
 }
 
 @media (max-width: 576px) {
-    .footer-logo-img {
-        max-height: 60px;
-    }
+  .footer-logo-img {
+    max-height: 60px;
+  }
 }
 
 /* =========================================================
    FONDO DECORATIVO A LA DERECHA
 ========================================================= */
 .page-wrap {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
-    overflow-y: visible;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 
 main.page-content {
-    flex: 1 0 auto;
+  flex: 1 0 auto;
 }
 
 .bg-right {
@@ -135,7 +144,7 @@ main.page-content {
   background-repeat: no-repeat;
   background-position: right top;
   background-size: cover;
-  opacity: 0.40;
+  opacity: 0.4;
   z-index: 0;
   pointer-events: none;
 }
@@ -184,9 +193,9 @@ main.page-content {
   padding: 2.2rem 2.4rem;
   background: linear-gradient(
     90deg,
-    rgba(0,0,0,0.90) 0%,
-    rgba(0,127,115,0.92) 55%,
-    rgba(0,127,115,0.92) 100%
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 127, 115, 0.92) 55%,
+    rgba(0, 127, 115, 0.92) 100%
   );
 }
 
@@ -230,8 +239,8 @@ main.page-content {
   cursor: pointer;
   /* Transición suave en TODO: fondo, sombra, transformación */
   transition:
-    transform      0.45s cubic-bezier(0.165, 0.84, 0.44, 1),
-    box-shadow     0.45s cubic-bezier(0.165, 0.84, 0.44, 1),
+    transform 0.45s cubic-bezier(0.165, 0.84, 0.44, 1),
+    box-shadow 0.45s cubic-bezier(0.165, 0.84, 0.44, 1),
     background-color 0.45s ease;
 }
 
@@ -254,10 +263,10 @@ main.page-content {
 /* --- Botón: transición de colores suave --- */
 .workshop-card .btn-outline-dark {
   transition:
-    color            0.45s ease,
-    border-color     0.45s ease,
+    color 0.45s ease,
+    border-color 0.45s ease,
     background-color 0.45s ease,
-    box-shadow       0.45s ease;
+    box-shadow 0.45s ease;
 }
 
 .card.workshop-card .card-body {
@@ -341,7 +350,7 @@ main.page-content {
   width: 70px;
   height: 70px;
   object-fit: cover;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
 }
 
@@ -451,7 +460,7 @@ main.page-content {
 }
 
 .hero-main__subtitle {
-  color: rgba(255,255,255,0.75);
+  color: rgba(255, 255, 255, 0.75);
   font-size: 0.9rem;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -478,7 +487,7 @@ main.page-content {
   padding: 1.1rem 1.4rem;
   text-decoration: none;
   color: #fff;
-  border-right: 1px solid rgba(255,255,255,0.12);
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
   transition: background 0.3s ease;
 }
 
@@ -487,7 +496,7 @@ main.page-content {
 }
 
 .quick-card:hover {
-  background: rgba(32,201,151,0.25);
+  background: rgba(32, 201, 151, 0.25);
   color: #fff;
 }
 
@@ -536,7 +545,7 @@ main.page-content {
   }
   .quick-card {
     border-right: none;
-    border-bottom: 1px solid rgba(255,255,255,0.12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
   .quick-card:last-child {
     border-bottom: none;
@@ -568,7 +577,7 @@ main.page-content {
   --ponencias-text-main: #0f2438;
   --ponencias-text-muted: #5f6b7a;
   --ponencias-card-radius: 22px;
-  --ponencias-shadow-soft: 0 16px 40px rgba(15, 36, 56, 0.10);
+  --ponencias-shadow-soft: 0 16px 40px rgba(15, 36, 56, 0.1);
   --ponencias-shadow-featured: 0 20px 45px rgba(26, 95, 61, 0.16);
 }
 
@@ -581,11 +590,11 @@ main.page-content {
   font-size: clamp(1.8rem, 2.8vw, 2.6rem);
   font-weight: 800;
   color: var(--ponencias-text-main);
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .page-ponencias .regular-section-title {
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   margin-bottom: 1.8rem;
 }
 
@@ -593,7 +602,7 @@ main.page-content {
   font-size: clamp(1.4rem, 2vw, 2rem);
   font-weight: 800;
   color: var(--ponencias-text-main);
-  margin-bottom: .35rem;
+  margin-bottom: 0.35rem;
 }
 
 /* ---------- Bloque de ponencias destacadas ---------- */
@@ -618,7 +627,11 @@ main.page-content {
   overflow: hidden;
   min-height: 190px;
   height: 300px;
-  background: linear-gradient(135deg, var(--ponencias-accent), var(--ponencias-accent-2));
+  background: linear-gradient(
+    135deg,
+    var(--ponencias-accent),
+    var(--ponencias-accent-2)
+  );
   position: relative;
   z-index: 2;
 }
@@ -690,7 +703,11 @@ main.page-content {
 }
 
 .page-ponencias .date-tab.active {
-  background: linear-gradient(135deg, var(--ponencias-accent), var(--ponencias-accent-2));
+  background: linear-gradient(
+    135deg,
+    var(--ponencias-accent),
+    var(--ponencias-accent-2)
+  );
   border-color: transparent;
   color: #fff;
   box-shadow: 0 6px 24px rgba(26, 95, 61, 0.3);
@@ -718,7 +735,10 @@ main.page-content {
   border-radius: var(--ponencias-card-radius);
   overflow: hidden;
   background: #fff;
-  transition: transform .28s ease, box-shadow .28s ease, background .28s ease;
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    background 0.28s ease;
   box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
   height: 100%;
 }
@@ -730,7 +750,7 @@ main.page-content {
 }
 
 .page-ponencias .workshop-card .card-body {
-  padding-top: 1.5rem !important;
+  padding-top: 2.9rem !important;
   background: transparent;
 }
 
@@ -744,6 +764,35 @@ main.page-content {
   object-fit: cover;
   display: block;
   background: #edf2f7;
+}
+
+/* ---------- Bandera / país del ponente ---------- */
+.page-ponencias .speaker-badge {
+  position: absolute;
+  bottom: -25px;
+  right: 20px;
+  z-index: 10;
+
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.page-ponencias .speaker-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.page-ponencias .workshop-card:hover .speaker-badge img {
+  transform: rotate(5deg) scale(1.1);
 }
 
 .page-ponencias .workshop-card .card-title {
@@ -760,7 +809,7 @@ main.page-content {
 
 .page-ponencias .workshop-card .card-text {
   color: var(--ponencias-text-muted);
-  font-size: .95rem;
+  font-size: 0.95rem;
 }
 
 .page-ponencias .workshop-card:hover .card-text {
@@ -777,7 +826,7 @@ main.page-content {
 .page-ponencias .workshop-card .btn {
   border-width: 1.5px;
   font-weight: 600;
-  transition: all .25s ease;
+  transition: all 0.25s ease;
   border-color: var(--ponencias-accent);
   color: var(--ponencias-accent);
   background: transparent;
@@ -808,12 +857,16 @@ main.page-content {
   inset: 0;
   border-radius: var(--ponencias-card-radius);
   padding: 1px;
-  background: linear-gradient(135deg, rgba(45, 138, 95, .35), rgba(26, 95, 61, .08));
+  background: linear-gradient(
+    135deg,
+    rgba(45, 138, 95, 0.35),
+    rgba(26, 95, 61, 0.08)
+  );
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
-          mask-composite: exclude;
+  mask-composite: exclude;
   pointer-events: none;
 }
 
@@ -822,15 +875,19 @@ main.page-content {
   top: 16px;
   left: 16px;
   z-index: 4;
-  background: linear-gradient(135deg, var(--ponencias-accent), var(--ponencias-accent-2));
+  background: linear-gradient(
+    135deg,
+    var(--ponencias-accent),
+    var(--ponencias-accent-2)
+  );
   color: #fff;
-  padding: .5rem .95rem;
+  padding: 0.5rem 0.95rem;
   border-radius: 999px;
-  font-size: .72rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: .06em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  box-shadow: 0 10px 22px rgba(26, 95, 61, .28);
+  box-shadow: 0 10px 22px rgba(26, 95, 61, 0.28);
 }
 
 .page-ponencias .workshop-card--featured .card-title,
@@ -866,14 +923,14 @@ main.page-content {
   font-size: 1.45rem;
   font-weight: 800;
   color: var(--ponencias-text-main);
-  margin-bottom: .35rem;
+  margin-bottom: 0.35rem;
 }
 
 .page-ponencias .speaker-modal__title {
   color: var(--ponencias-accent);
   font-weight: 700;
   font-size: 1rem;
-  margin-bottom: .8rem;
+  margin-bottom: 0.8rem;
 }
 
 .page-ponencias .speaker-modal__meta {
@@ -882,11 +939,11 @@ main.page-content {
 }
 
 .page-ponencias .speaker-schedule-card {
-  border: 1px solid rgba(26, 95, 61, .08);
+  border: 1px solid rgba(26, 95, 61, 0.08);
   border-radius: 16px;
   padding: 1rem;
   background: #f8fbff;
-  margin-bottom: .9rem;
+  margin-bottom: 0.9rem;
 }
 
 .page-ponencias .speaker-schedule-card:last-child {
@@ -895,21 +952,21 @@ main.page-content {
 
 .page-ponencias .speaker-schedule-card__day {
   display: inline-block;
-  font-size: .78rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: .05em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--ponencias-accent);
   background: var(--ponencias-accent-soft);
   border-radius: 999px;
-  padding: .35rem .7rem;
-  margin-bottom: .65rem;
+  padding: 0.35rem 0.7rem;
+  margin-bottom: 0.65rem;
 }
 
 .page-ponencias .speaker-schedule-card__time {
   font-weight: 700;
   color: var(--ponencias-text-main);
-  margin-bottom: .3rem;
+  margin-bottom: 0.3rem;
 }
 
 .page-ponencias .speaker-schedule-card__topic {
@@ -933,7 +990,10 @@ main.page-content {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: background .2s ease, transform .2s ease, opacity .2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    opacity 0.2s ease;
 }
 
 .page-ponencias .modal-close-x:hover {
@@ -991,7 +1051,6 @@ main.page-content {
   }
 }
 
-
 /* =========================================================
    PÁGINA: LUGAR
    - Estilos movidos desde lugar.html
@@ -1006,8 +1065,8 @@ main.page-content {
   --lugar-text-main: #0f2438;
   --lugar-text-muted: #5f6b7a;
   --lugar-radius: 22px;
-  --lugar-shadow-soft: 0 16px 40px rgba(15, 36, 56, 0.10);
-  --lugar-shadow-dark: 0 18px 45px rgba(0, 77, 64, 0.20);
+  --lugar-shadow-soft: 0 16px 40px rgba(15, 36, 56, 0.1);
+  --lugar-shadow-dark: 0 18px 45px rgba(0, 77, 64, 0.2);
 }
 
 /* ---------- Hero de Lugar ---------- */
@@ -1018,7 +1077,11 @@ main.page-content {
   overflow: hidden;
   min-height: 190px;
   height: 300px;
-  background: linear-gradient(135deg, var(--lugar-accent), var(--lugar-accent-2));
+  background: linear-gradient(
+    135deg,
+    var(--lugar-accent),
+    var(--lugar-accent-2)
+  );
   position: relative;
   z-index: 2;
 }
@@ -1095,7 +1158,12 @@ main.page-content {
 }
 
 .page-lugar .venue-block--dark {
-  background: linear-gradient(135deg, #071f1d 0%, var(--color-primary-deep) 52%, var(--color-primary) 100%);
+  background: linear-gradient(
+    135deg,
+    #071f1d 0%,
+    var(--color-primary-deep) 52%,
+    var(--color-primary) 100%
+  );
   border-color: rgba(32, 201, 151, 0.24);
   box-shadow: var(--lugar-shadow-dark);
 }
@@ -1197,12 +1265,14 @@ main.page-content {
   align-items: center;
   gap: 0.9rem;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .page-lugar .info-chip:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0, 127, 115, 0.10);
+  box-shadow: 0 6px 20px rgba(0, 127, 115, 0.1);
 }
 
 .page-lugar .info-chip__icon {
@@ -1238,7 +1308,7 @@ main.page-content {
 .page-lugar .map-wrap {
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 127, 115, 0.12);
   height: 360px;
   position: relative;
@@ -1255,15 +1325,21 @@ main.page-content {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, var(--lugar-accent), var(--color-accent-dark));
+  background: linear-gradient(
+    135deg,
+    var(--lugar-accent),
+    var(--color-accent-dark)
+  );
   color: #ffffff;
   border-radius: 10px;
   padding: 0.75rem 1.6rem;
   text-decoration: none;
   font-weight: 800;
   font-size: 0.88rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 8px 20px rgba(0, 127, 115, 0.20);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 8px 20px rgba(0, 127, 115, 0.2);
 }
 
 .page-lugar .map-btn:hover {
@@ -1308,7 +1384,6 @@ main.page-content {
   }
 }
 
-
 /* =========================================================
    PÁGINA: CRONOGRAMA
    - Estilos movidos desde cronograma.html
@@ -1323,7 +1398,7 @@ main.page-content {
   --cronograma-text-main: #0f2438;
   --cronograma-text-muted: #5f6b7a;
   --cronograma-border: rgba(0, 127, 115, 0.14);
-  --cronograma-shadow: 0 16px 40px rgba(15, 36, 56, 0.10);
+  --cronograma-shadow: 0 16px 40px rgba(15, 36, 56, 0.1);
 }
 
 /* ---------- Hero de Cronograma ---------- */
@@ -1334,7 +1409,11 @@ main.page-content {
   overflow: hidden;
   min-height: 190px;
   height: 300px;
-  background: linear-gradient(135deg, var(--cronograma-accent), var(--cronograma-accent-2));
+  background: linear-gradient(
+    135deg,
+    var(--cronograma-accent),
+    var(--cronograma-accent-2)
+  );
   position: relative;
   z-index: 2;
 }
@@ -1449,7 +1528,11 @@ main.page-content {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: linear-gradient(135deg, var(--cronograma-accent), var(--cronograma-accent-2));
+  background: linear-gradient(
+    135deg,
+    var(--cronograma-accent),
+    var(--cronograma-accent-2)
+  );
   color: #ffffff !important;
   border: none;
   border-radius: 50px;
@@ -1458,16 +1541,18 @@ main.page-content {
   font-weight: 800;
   cursor: pointer;
   text-decoration: none !important;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
   white-space: nowrap;
   flex-shrink: 0;
-  box-shadow: 0 8px 20px rgba(0, 127, 115, 0.20);
+  box-shadow: 0 8px 20px rgba(0, 127, 115, 0.2);
 }
 
 .page-cronograma .btn-dl:hover {
   color: #ffffff !important;
   transform: translateY(-2px);
-  box-shadow: 0 12px 26px rgba(0, 127, 115, 0.30);
+  box-shadow: 0 12px 26px rgba(0, 127, 115, 0.3);
 }
 
 .page-cronograma .btn-dl:active {
@@ -1499,7 +1584,7 @@ main.page-content {
 
 .page-cronograma .pdf-page {
   background: #ffffff;
-  box-shadow: 0 4px 18px rgba(0, 77, 64, 0.10);
+  box-shadow: 0 4px 18px rgba(0, 77, 64, 0.1);
   border-radius: 10px;
   overflow: hidden;
   max-width: 100%;
@@ -1575,7 +1660,6 @@ main.page-content {
   }
 }
 
-
 /* =========================================================
    PÁGINA: BIENVENIDA
    - Estilos movidos a styles.css
@@ -1601,7 +1685,11 @@ main.page-content {
   overflow: hidden;
   min-height: 190px;
   height: 300px;
-  background: linear-gradient(135deg, var(--bienvenida-accent), var(--bienvenida-accent-2));
+  background: linear-gradient(
+    135deg,
+    var(--bienvenida-accent),
+    var(--bienvenida-accent-2)
+  );
   position: relative;
   z-index: 2;
 }
@@ -1659,8 +1747,16 @@ main.page-content {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at top right, rgba(32, 201, 151, 0.13), transparent 38%),
-    radial-gradient(circle at bottom left, rgba(0, 127, 115, 0.08), transparent 34%);
+    radial-gradient(
+      circle at top right,
+      rgba(32, 201, 151, 0.13),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(0, 127, 115, 0.08),
+      transparent 34%
+    );
   pointer-events: none;
 }
 
@@ -1670,7 +1766,11 @@ main.page-content {
   min-height: 100%;
   overflow: hidden;
   background:
-    radial-gradient(circle at 20% 20%, rgba(32, 201, 151, 0.28), transparent 34%),
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(32, 201, 151, 0.28),
+      transparent 34%
+    ),
     linear-gradient(135deg, var(--color-primary-deep), var(--color-primary));
   display: flex;
   align-items: center;
@@ -1716,12 +1816,11 @@ main.page-content {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(0, 77, 64, 0.04) 0%,
-      rgba(0, 77, 64, 0.20) 100%
-    );
+  background: linear-gradient(
+    180deg,
+    rgba(0, 77, 64, 0.04) 0%,
+    rgba(0, 77, 64, 0.2) 100%
+  );
   pointer-events: none;
 }
 
@@ -1738,13 +1837,17 @@ main.page-content {
   margin-bottom: 1rem;
   padding: 0.35rem 0.95rem;
   border-radius: 999px;
-  background: linear-gradient(135deg, var(--bienvenida-accent), var(--color-accent));
+  background: linear-gradient(
+    135deg,
+    var(--bienvenida-accent),
+    var(--color-accent)
+  );
   color: #ffffff;
   font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 2px;
   text-transform: uppercase;
-  box-shadow: 0 10px 22px rgba(0, 127, 115, 0.20);
+  box-shadow: 0 10px 22px rgba(0, 127, 115, 0.2);
 }
 
 .page-bienvenida .welcome-card__title {
@@ -1781,20 +1884,27 @@ main.page-content {
   border: 1px solid rgba(0, 127, 115, 0.12);
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.78);
-  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
 }
 
 .page-bienvenida .welcome-topic:hover {
   transform: translateY(-3px);
   border-color: rgba(0, 127, 115, 0.22);
-  box-shadow: 0 10px 26px rgba(0, 127, 115, 0.10);
+  box-shadow: 0 10px 26px rgba(0, 127, 115, 0.1);
 }
 
 .page-bienvenida .welcome-topic__icon {
   width: 48px;
   height: 48px;
   border-radius: 14px;
-  background: linear-gradient(135deg, var(--bienvenida-accent), var(--color-accent));
+  background: linear-gradient(
+    135deg,
+    var(--bienvenida-accent),
+    var(--color-accent)
+  );
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -1944,5 +2054,17 @@ main.page-content {
     border-radius: 24px;
     border-width: 6px;
     transform: none;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .page-ponencias .speaker-badge {
+    width: 56px;
+    height: 56px;
+    bottom: -24px;
+  }
+
+  .page-ponencias .workshop-card .card-body {
+    padding-top: 2.6rem !important;
   }
 }

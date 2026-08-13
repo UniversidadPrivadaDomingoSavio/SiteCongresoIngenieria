@@ -1,258 +1,337 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es" class="h-100">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Congreso de Inteligencia Artificial y Tecnologías Digitales para la Innovación</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Congreso de Inteligencia Artificial y Tecnologías Digitales para la
+      Innovación
+    </title>
 
-  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" type="image/png" href="img/logo_32x32.png">
-</head>
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" type="image/png" href="img/logo_32x32.png" />
+  </head>
 
-<body class="page-ponencias d-flex flex-column h-100">
-  <div class="page-wrap d-flex flex-column min-vh-100">
+  <body class="page-ponencias d-flex flex-column h-100">
+    <div class="page-wrap d-flex flex-column min-vh-100">
+      <div class="bg-right d-none d-lg-block"></div>
+      <div id="header-placeholder"></div>
 
-    <div class="bg-right d-none d-lg-block"></div>
-    <div id="header-placeholder"></div>
-
-    <main class="flex-shrink-0 content-padding page-content">
-
-      <section class="hero-strip my-4">
-        <div class="hero-strip__media">
-          <video autoplay muted loop playsinline preload="metadata">
-            <source src="media/Technology Background.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="hero-strip__panel">
-          <h2 class="hero-strip__title">Ponencias</h2>
-        </div>
-      </section>
-
-      <div class="container my-5">
-
-        <!-- FILTROS POR SESIÓN -->
-        <div class="date-tabs ponencias-tabs mb-5">
-          <button type="button" class="date-tab date-tab--all active" onclick="filterPonencias('all', this)">
-            <span class="date-tab__day">Todas</span>
-          </button>
-
-          <button type="button" class="date-tab" onclick="filterPonencias('manana', this)">
-            <span class="date-tab__day">Mañana</span>
-          </button>
-
-          <button type="button" class="date-tab" onclick="filterPonencias('noche', this)">
-            <span class="date-tab__day">Noche</span>
-          </button>
-        </div>
-
-        <!-- TODAS LAS PONENCIAS -->
-        <section id="regular-speakers-section">
-          <div class="regular-section-title">
-            <h3>Ponencias</h3>
+      <main class="flex-shrink-0 content-padding page-content">
+        <section class="hero-strip my-4">
+          <div class="hero-strip__media">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="media/Technology Background.mp4" type="video/mp4" />
+            </video>
           </div>
-
-          <div class="row g-4" id="regular-speakers-grid"></div>
+          <div class="hero-strip__panel">
+            <h2 class="hero-strip__title">Ponencias</h2>
+          </div>
         </section>
 
-      </div>
-    </main>
+        <div class="container my-5">
+          <!-- FILTROS POR SESIÓN -->
+          <div class="date-tabs ponencias-tabs mb-5">
+            <button
+              type="button"
+              class="date-tab date-tab--all active"
+              onclick="filterPonencias('all', this)"
+            >
+              <span class="date-tab__day">Todas</span>
+            </button>
 
-    <div id="footer-placeholder" class="mt-auto"></div>
-  </div>
+            <button
+              type="button"
+              class="date-tab"
+              onclick="filterPonencias('manana', this)"
+            >
+              <span class="date-tab__day">Mañana</span>
+            </button>
 
-  <!-- MODAL LEER MÁS -->
-  <div class="modal fade" id="speakerModal" tabindex="-1" aria-labelledby="speakerModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content speaker-modal-content border-0">
-        
-        <div class="modal-header border-0 pb-0 px-4 pt-4 d-flex justify-content-between align-items-start">
-          <h5 class="modal-title fw-bold" id="speakerModalLabel">Detalle del Ponente</h5>
-          <button type="button" class="modal-close-x" data-bs-dismiss="modal" aria-label="Cerrar">×</button>
-        </div>
+            <button
+              type="button"
+              class="date-tab"
+              onclick="filterPonencias('noche', this)"
+            >
+              <span class="date-tab__day">Noche</span>
+            </button>
+          </div>
 
-        <div class="modal-body px-4 pb-4">
-          <div class="row g-4 align-items-start">
-            <div class="col-12 col-lg-5">
-              <img id="modalSpeakerImage" class="speaker-modal__img" src="img/logo_32x32.png" alt="Ponente">
+          <!-- TODAS LAS PONENCIAS -->
+          <section id="regular-speakers-section">
+            <div class="regular-section-title">
+              <h3>Ponencias</h3>
             </div>
 
-            <div class="col-12 col-lg-7">
-              <div class="speaker-modal__name" id="modalSpeakerName">Nombre del Ponente</div>
-              <div class="speaker-modal__title" id="modalSpeakerTitle">Título de la ponencia</div>
-              <div class="speaker-modal__meta" id="modalSpeakerMeta">Información general</div>
+            <div class="row g-4" id="regular-speakers-grid"></div>
+          </section>
+        </div>
+      </main>
 
-              <div id="modalSpeakerSchedule"></div>
+      <div id="footer-placeholder" class="mt-auto"></div>
+    </div>
+
+    <!-- MODAL LEER MÁS -->
+    <div
+      class="modal fade"
+      id="speakerModal"
+      tabindex="-1"
+      aria-labelledby="speakerModalLabel"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable"
+      >
+        <div class="modal-content speaker-modal-content border-0">
+          <div
+            class="modal-header border-0 pb-0 px-4 pt-4 d-flex justify-content-between align-items-start"
+          >
+            <h5 class="modal-title fw-bold" id="speakerModalLabel">
+              Detalle del Ponente
+            </h5>
+            <button
+              type="button"
+              class="modal-close-x"
+              data-bs-dismiss="modal"
+              aria-label="Cerrar"
+            >
+              ×
+            </button>
+          </div>
+
+          <div class="modal-body px-4 pb-4">
+            <div class="row g-4 align-items-start">
+              <div class="col-12 col-lg-5">
+                <img
+                  id="modalSpeakerImage"
+                  class="speaker-modal__img"
+                  src="img/logo_32x32.png"
+                  alt="Ponente"
+                />
+              </div>
+
+              <div class="col-12 col-lg-7">
+                <div class="speaker-modal__name" id="modalSpeakerName">
+                  Nombre del Ponente
+                </div>
+                <div class="speaker-modal__title" id="modalSpeakerTitle">
+                  Título de la ponencia
+                </div>
+                <div class="speaker-modal__meta" id="modalSpeakerMeta">
+                  Información general
+                </div>
+
+                <div id="modalSpeakerSchedule"></div>
+              </div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
-  </div>
 
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="js/layout.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/layout.js"></script>
 
-  <script>
-    const fallbackImg = 'img/principal/Ponencias.jpg';
-    let currentFilter = 'all';
-    let speakerModal = null;
+    <script>
+      const fallbackImg = "img/principal/Ponencias.jpg";
+      const fallbackFlag = "img/banderas/bolivia.png";
+      let currentFilter = "all";
+      let speakerModal = null;
 
-    const speakers = [
-      {
-        name: 'PhD(c). Kenji Kawaida',
-        session: 'manana',
-        image: 'img/ponencias/kenji_kawaida.jpg',
-        academicTitle: 'Doctorante en Ciencias de la Computación',
-        mainTitle: 'Del modelo general al sistema experto: Agentes inteligentes para resolver problemas reales en ingeniería',
-        profile: 'Consultor de software con 13 años de experiencia en proyectos nacionales e internacionales. Especializado en desarrollo móvil, machine learning y procesamiento de lenguaje natural (NLP). Conferencista y docente de posgrado.',
-        schedules: [
-          {
-            sessionLabel: 'Sesión de la Mañana',
-            time: '09:10 - 09:45',
-            title: 'Del modelo general al sistema experto: Agentes inteligentes para resolver problemas reales en ingeniería'
-          }
-        ]
-      },
-      {
-        name: 'PhD(c). Ernesto Soto Roca',
-        session: 'manana',
-        image: 'img/ponencias/ernesto_soto.jpg',
-        academicTitle: 'Doctorante en Ciencias de la Computación',
-        mainTitle: 'Scrum evolucionando con la IA',
-        profile: 'Magíster en Ingeniería de Software. Cuenta con certificación internacional SCRUM Master y formación en gestión de proyectos. Actualmente ocupa el cargo de Director de Investigación y Calidad Académica en UPDS Santa Cruz.',
-        schedules: [
-          {
-            sessionLabel: 'Sesión de la Mañana',
-            time: '09:50 - 10:25',
-            title: 'Scrum evolucionando con la IA'
-          }
-        ]
-      },
-      {
-        name: 'Msc. Alejandro Pereyra Chavarría',
-        session: 'manana',
-        image: 'img/ponencias/alejandro_pereyra.jpg',
-        academicTitle: 'Magíster en Administración de Negocios',
-        mainTitle: 'Emprendimientos y medios de pago en Blockchain',
-        profile: 'Especialista en logística y comercio internacional con 15 años de experiencia en operaciones en mercados como China y Estados Unidos, optimizando procesos desde la producción hasta la distribución final.',
-        schedules: [
-          {
-            sessionLabel: 'Sesión de la Mañana',
-            time: '10:30 - 11:05',
-            title: 'Emprendimientos y medios de pago en Blockchain'
-          }
-        ]
-      },
-      {
-        name: 'PhD(c). Leonardo Vargas Peña',
-        session: 'manana',
-        image: 'img/ponencias/leonardo_vargas.jpg',
-        academicTitle: 'Doctorante en Ciencias Exactas y tecnología',
-        mainTitle: 'Modelo pedagógico adaptativo basado en IA, para el aprendizaje de programación',
-        profile: 'Director de la carrera de Ingeniería en Sistemas (UAGRM) y experto en Seguridad Informática con 20 años de experiencia. Investigador en IA aplicada a la educación y docente con formación de postgrado en España.',
-        schedules: [
-          {
-            sessionLabel: 'Sesión de la Mañana',
-            time: '11:10 - 11:45',
-            title: 'Modelo pedagógico adaptativo basado en IA, para el aprendizaje de programación'
-          }
-        ]
-      },
-      {
-        name: 'Ing. John Christian Salas Cabrera',
-        session: 'manana',
-        image: 'img/ponencias/john_salas.jpg',
-        academicTitle: 'Ingeniero Petrolero y Mecánico Industrial',
-        mainTitle: 'Trading e inversiones en los mercados financieros',
-        profile: 'Ingeniero Petrolero y Mecánico Industrial, con amplia experiencia en mantenimiento industrial y gestión pública. Emprendedor y capacitador profesional en inversiones internacional y compras con Criptomonedas.',
-        schedules: [
-          {
-            sessionLabel: 'Sesión de la Mañana',
-            time: '11:50 - 12:25',
-            title: 'Trading e inversiones en los mercados financieros'
-          }
-        ]
-      },
-      {
-        name: 'MSc. Jimmy Nataniel Requena Llorentty',
-        session: 'noche',
-        image: 'img/ponencias/jimmy_requena.jpg',
-        academicTitle: 'MSc. en Ingeniería Matemática e Informática',
-        mainTitle: 'Operadores que nunca duermen: Agentes Inteligentes para Fallbacks',
-        profile: 'Consultor y Scrum Master con más de 10 años de experiencia en implementación de sistemas ERP (SAP, Oracle), enfocado en transformación digital, gestión ágil, Big data y optimización de procesos empresariales con tecnología.',
-        schedules: [
-          {
-            sessionLabel: 'Sesión de la Noche',
-            time: '19:10 - 19:50',
-            title: 'Operadores que nunca duermen: Agentes Inteligentes para Fallbacks'
-          }
-        ]
-      },
-      {
-        name: 'PhD(c). Edgar Jaldin Torrico',
-        session: 'noche',
-        image: 'img/ponencias/edgar_jaldin.jpg',
-        academicTitle: 'Doctorante en Ciencias de la Computación',
-        mainTitle: 'Desarrollando soluciones de IA para Europa desde Bolivia: Retos y aprendizajes',
-        profile: 'Especialista en ciencia de datos con formación en Italia, experto en big data, machine learning, visualización de datos y analítica avanzada para el ámbito empresarial y tecnológico.',
-        schedules: [
-          {
-            sessionLabel: 'Sesión de la Noche',
-            time: '19:55 - 20:35',
-            title: 'Desarrollando soluciones de IA para Europa desde Bolivia: Retos y aprendizajes'
-          }
-        ]
-      },
-      {
-        name: 'Ing. Kevin Ronald López Orellana',
-        session: 'noche',
-        image: 'img/ponencias/kevin_lopez.jpg',
-        academicTitle: 'Ingeniero en Sistemas',
-        mainTitle: 'Blockchain y Criptomonedas, emprendimientos de alto impacto',
-        profile: 'Fundador y líder de startups en Latinoamérica, con más de 8 años de experiencia en desarrollo de software. Enfocado en innovación, emprendimiento tecnológico y soluciones digitales con impacto empresarial.',
-        schedules: [
-          {
-            sessionLabel: 'Sesión de la Noche',
-            time: '20:40 - 21:20',
-            title: 'Blockchain y Criptomonedas, emprendimientos de alto impacto'
-          }
-        ]
+      const speakers = [
+        {
+          name: "Ing. José Manuel Vargas Rivera",
+          country: "Brasil",
+          flag: "img/banderas/brasil.png",
+          session: "pendiente",
+          image: "img/ponencias/jose_manuel_vargas_rivera.png",
+          academicTitle: "Ingeniero Industrial",
+          mainTitle:
+            "Supply Chain: la profesión que conecta empresas, personas y oportunidades",
+          profile:
+            "Ingeniero industrial que actualmente desarrolla su carrera profesional en Brasil dentro del área de Supply Chain. Convencido de que la logística es uno de los pilares estratégicos de cualquier organización, comparte experiencias y aprendizajes sobre cómo la cadena de suministro conecta empresas, personas y oportunidades en un mundo cada vez más interconectado.",
+          schedules: [
+            {
+              sessionLabel: "— — —",
+              time: "— — —",
+              title:
+                "Supply Chain: la profesión que conecta empresas, personas y oportunidades",
+            },
+          ],
+        },
+        {
+          name: "Mag. Ing. Ana Pamela Arévalos Ferreira",
+          country: "Paraguay",
+          flag: "img/banderas/paraguay.png",
+          session: "pendiente",
+          image: "img/ponencias/ana_pamela_arevalos_ferreira.jpg",
+          academicTitle:
+            "Magíster en Ingeniería Industrial e Ingeniera Industrial",
+          mainTitle:
+            "Transformación digital en el sector alimentario: Integración de tecnologías 4.0 para la mejora de la inocuidad",
+          profile:
+            "Docente Investigadora en el Departamento de Ingeniería Industrial de la Facultad de Ingeniería de la Universidad Nacional de Asunción (FIUNA), Paraguay. Es Magíster en Ingeniería Industrial e Ingeniera Industrial por la FIUNA, y actualmente se encuentra realizando sus estudios de Doctorado en Ciencias de la Ingeniería en la misma institución. Su área de trabajo se enfoca en temas relacionados a la inocuidad alimentaria desde la perspectiva de la ingeniería industrial, con interés en la integración de tecnologías de la Industria 4.0. Ha participado en proyectos de investigación y cuenta con publicaciones en revistas arbitradas y presentaciones en congresos nacionales e internacionales del área.",
+          schedules: [
+            {
+              sessionLabel: "— — —",
+              time: "— — —",
+              title:
+                "Transformación digital en el sector alimentario: Integración de tecnologías 4.0 para la mejora de la inocuidad",
+            },
+          ],
+        },
+        {
+          name: "Ing. Luis Cristian Torrez La Fuente",
+          country: "Bolivia",
+          flag: "img/banderas/bolivia.png",
+          session: "pendiente",
+          image: "img/ponencias/luis_cristian_torrez_la_fuente.jpg",
+          academicTitle: "Ingeniero Industrial",
+          mainTitle: "El arte del MVP: Pasos para desarrollar un proyecto",
+          profile:
+            "Ingeniero industrial y emprendedor boliviano, cofundador y CEO de Alliox. Especialista en gestión de proyectos, lidera la transformación digital del sector inmobiliario mediante herramientas tecnológicas e innovación, impulsando soluciones estratégicas para dinamizar la economía y la industria a nivel nacional.",
+          schedules: [
+            {
+              sessionLabel: "— — —",
+              time: "— — —",
+              title: "El arte del MVP: Pasos para desarrollar un proyecto",
+            },
+          ],
+        },
+        {
+          name: "Ing. Diego Alejandro Cruz Ortiz",
+          country: "Bolivia",
+          flag: "img/banderas/bolivia.png",
+          session: "pendiente",
+          image: "img/ponencias/diego_alejandro_cruz_ortiz.jpg",
+          academicTitle: "Ingeniero Industrial",
+          mainTitle:
+            "Mantenimiento industrial en planta de acopio de granos - sistemas de transporte",
+          profile:
+            "Ingeniero Industrial y especialista en sistemas de transporte, con experiencia como Asesor Técnico Comercial y Proyectos en ATIMEX Bolivia S.R.L. Con desempeño en el diseño de líneas de sistemas de transporte y plantas agroindustriales, integrando conocimientos técnicos y comerciales para el desarrollo y gestión de soluciones aplicadas a proyectos industriales.",
+          schedules: [
+            {
+              sessionLabel: "— — —",
+              time: "— — —",
+              title:
+                "Mantenimiento industrial en planta de acopio de granos - sistemas de transporte",
+            },
+          ],
+        },
+        {
+          name: "MBA. Ing. Edson Huanca Cayoja",
+          country: "Bolivia",
+          flag: "img/banderas/bolivia.png",
+          session: "pendiente",
+          image: "img/ponencias/edson_huanca_cayoja.png",
+          academicTitle: "Magíster en Administración de Negocios",
+          mainTitle:
+            "El futuro se mueve en toneladas: inteligencia predictiva para transformar la logística de granos.",
+          profile:
+            "Magíster en Administración de Negocios (UAGRM) y especialista en Agronegocios (Agroeducación Argentina). Doctorante en Investigación Científica (UAGRM), con experiencia en gestión industrial, innovación, análisis de datos, riesgos productivos y mercados de futuros aplicados al sector agroindustrial.",
+          schedules: [
+            {
+              sessionLabel: "— — —",
+              time: "— — —",
+              title:
+                "El futuro se mueve en toneladas: inteligencia predictiva para transformar la logística de granos.",
+            },
+          ],
+        },
+        {
+          name: "Ing. Leonardo Egüez Rosas",
+          country: "Bolivia",
+          flag: "img/banderas/bolivia.png",
+          session: "pendiente",
+          image: "img/ponencias/leonardo_eguez_rosas.png",
+          academicTitle: "Ingeniero",
+          mainTitle:
+            "¿Por qué los Proyectos Tecnológicos Necesitan Ingenieros Industriales?",
+          profile:
+            "Líder Estratégico en Transformación Digital con amplia trayectoria dirigiendo implementaciones de Odoo ERP a nivel internacional. Experto en metodologías oficiales de Odoo, certificado en las versiones 17 y 18, con un historial comprobado de más de 20 proyectos ejecutados e implementados y cierre exitoso de proyectos de gran escala. Especialista en la apertura de mercados regionales y el liderazgo de equipos multidisciplinarios (funcional y desarrollo) para maximizar el ROI de los clientes.",
+          schedules: [
+            {
+              sessionLabel: "— — —",
+              time: "— — —",
+              title:
+                "¿Por qué los Proyectos Tecnológicos Necesitan Ingenieros Industriales?",
+            },
+          ],
+        },
+        {
+          name: "PhD. Ing. Sonia Romina Niezwida",
+          country: "Argentina",
+          flag: "img/banderas/Argentina.png",
+          session: "pendiente",
+          image: "img/ponencias/sonia_romina_niezwida.jpg",
+          academicTitle: "Doctora en Ingeniería Industrial",
+          mainTitle:
+            "Economía Circular: Ingeniería para transformar residuos en oportunidades",
+          profile:
+            "Ingeniera Industrial (2018). Doctora en Ingeniería Industrial (2026). Desarrolló su tesis doctoral sobre la gestión de residuos sólidos en municipios y micro-regiones mediante el Consejo Nacional de Investigaciones Científicas y Técnicas (CONICET) de Argentina y la Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES) de Brasil. Actualmente: Docente, investigadora y extensionista universitaria de la Universidad Nacional de Misiones (UNaM) de la provincia de Misiones, Argentina. Desarrolla sus investigaciones relacionadas con la gestión ambiental y huella de carbono en organizaciones, enfocada en modelizaciones para mejorar la gestión de residuos en municipios y PyMES, articulando laboratorios del Instituto de la Facultad de Ingeniería (IFI), Misiones, Argentina.",
+          schedules: [
+            {
+              sessionLabel: "— — —",
+              time: "— — —",
+              title:
+                "Economía Circular: Ingeniería para transformar residuos en oportunidades",
+            },
+          ],
+        },
+        {
+          name: "MCs. Ing. Zorel Gómez Vargas",
+          country: "Bolivia",
+          flag: "img/banderas/bolivia.png",
+          session: "pendiente",
+          image: "img/ponencias/zorel_gomez_vargas.png",
+          academicTitle: "Ingeniera Industrial",
+          mainTitle:
+            "Gestión estratégica de la I+D+i en carreras de Ingeniería: de proyectos aislados a ecosistemas de innovación",
+          profile:
+            "Ingeniera Industrial con formación especializada en Sistemas de Calidad y Productividad, y experiencia profesional en los sectores médico, aeroespacial y automotriz, además de consultoría en Excelencia Operacional. Actualmente se desempeña como docente investigadora de Ingeniería Industrial en la Universidad Católica Boliviana “San Pablo”, Sede Santa Cruz, donde ha impulsado sociedades científicas estudiantiles, grupos y centros de investigación, así como proyectos de cooperación internacional. Actualmente coordina un subproyecto de soberanía alimentaria e innovación nutricional en la Chiquitania boliviana y culmina su doctorado en la Universidad de Gante, Bélgica. Su investigación se orienta a los sistemas alimentarios, la seguridad alimentaria y la resiliencia de hogares chiquitanos e interculturales, desde un enfoque transdisciplinario.",
+          schedules: [
+            {
+              sessionLabel: "— — —",
+              time: "— — —",
+              title:
+                "Gestión estratégica de la I+D+i en carreras de Ingeniería: de proyectos aislados a ecosistemas de innovación",
+            },
+          ],
+        },
+      ];
+
+      function escapeHtml(text) {
+        if (!text) return "";
+
+        return text
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
       }
-    ];
 
-    function escapeHtml(text) {
-      if (!text) return '';
+      function getSchedulesForFilter(speaker) {
+        return speaker.schedules;
+      }
 
-      return text
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-    }
+      function speakerMatchesFilter(speaker) {
+        if (currentFilter === "all") return true;
 
-    function getSchedulesForFilter(speaker) {
-      return speaker.schedules;
-    }
+        return speaker.session === currentFilter;
+      }
 
-    function speakerMatchesFilter(speaker) {
-      if (currentFilter === 'all') return true;
+      function getCardTitle(speaker) {
+        return speaker.mainTitle || "Tema por confirmar";
+      }
 
-      return speaker.session === currentFilter;
-    }
+      function getCardSubtitle(speaker) {
+        return speaker.name;
+      }
 
-    function getCardTitle(speaker) {
-      return speaker.mainTitle || 'Tema por confirmar';
-    }
-
-    function getCardSubtitle(speaker) {
-      return speaker.name;
-    }
-
-    function createRegularCard(speaker, index) {
-      return `
+      function createRegularCard(speaker, index) {
+        return `
         <div class="col-12 col-md-6 col-lg-4 speaker-item">
           <div class="card workshop-card h-100 border-0 shadow-sm">
             <div class="position-relative">
@@ -262,6 +341,14 @@
                 alt="${escapeHtml(speaker.name)}" 
                 onerror="this.onerror=null; this.src='${fallbackImg}'"
               >
+
+              <div class="speaker-badge" title="${escapeHtml(speaker.country || "País")}" aria-label="${escapeHtml(speaker.country || "País")}">
+                <img
+                  src="${escapeHtml(speaker.flag || fallbackFlag)}"
+                  alt="Bandera de ${escapeHtml(speaker.country || "país")}"
+                  onerror="this.onerror=null; this.src='${fallbackFlag}'"
+                >
+              </div>
             </div>
 
             <div class="card-body p-4 d-flex flex-column">
@@ -278,34 +365,42 @@
           </div>
         </div>
       `;
-    }
+      }
 
-    function renderSpeakers() {
-      const regularGrid = document.getElementById('regular-speakers-grid');
+      function renderSpeakers() {
+        const regularGrid = document.getElementById("regular-speakers-grid");
 
-      const visibleSpeakers = speakers.filter(speakerMatchesFilter);
+        const visibleSpeakers = speakers.filter(speakerMatchesFilter);
 
-      regularGrid.innerHTML = visibleSpeakers.map((speaker) => {
-        const realIndex = speakers.findIndex(item => item.name === speaker.name);
-        return createRegularCard(speaker, realIndex);
-      }).join('');
-    }
+        regularGrid.innerHTML = visibleSpeakers
+          .map((speaker) => {
+            const realIndex = speakers.findIndex(
+              (item) => item.name === speaker.name,
+            );
+            return createRegularCard(speaker, realIndex);
+          })
+          .join("");
+      }
 
-    function filterPonencias(session, btn) {
-      currentFilter = session;
+      function filterPonencias(session, btn) {
+        currentFilter = session;
 
-      document.querySelectorAll('.ponencias-tabs .date-tab').forEach(tab => {
-        tab.classList.remove('active');
-      });
+        document
+          .querySelectorAll(".ponencias-tabs .date-tab")
+          .forEach((tab) => {
+            tab.classList.remove("active");
+          });
 
-      btn.classList.add('active');
-      renderSpeakers();
-    }
+        btn.classList.add("active");
+        renderSpeakers();
+      }
 
-    function buildScheduleHtml(speaker) {
-      const schedules = getSchedulesForFilter(speaker);
+      function buildScheduleHtml(speaker) {
+        const schedules = getSchedulesForFilter(speaker);
 
-      return schedules.map(item => `
+        return schedules
+          .map(
+            (item) => `
         <div class="speaker-schedule-card">
           <div class="speaker-schedule-card__day">${escapeHtml(item.sessionLabel)}</div>
           <div class="speaker-schedule-card__time">Horario: ${escapeHtml(item.time)}</div>
@@ -313,39 +408,46 @@
             <strong>Tema:</strong> ${escapeHtml(item.title)}
           </p>
         </div>
-      `).join('');
-    }
+      `,
+          )
+          .join("");
+      }
 
-    function openSpeakerModal(index) {
-      const speaker = speakers[index];
-      if (!speaker || !speakerModal) return;
+      function openSpeakerModal(index) {
+        const speaker = speakers[index];
+        if (!speaker || !speakerModal) return;
 
-      const modalImage = document.getElementById('modalSpeakerImage');
+        const modalImage = document.getElementById("modalSpeakerImage");
 
-      modalImage.onerror = function () {
-        this.onerror = null;
-        this.src = fallbackImg;
-      };
+        modalImage.onerror = function () {
+          this.onerror = null;
+          this.src = fallbackImg;
+        };
 
-      modalImage.src = speaker.image || fallbackImg;
+        modalImage.src = speaker.image || fallbackImg;
 
-      document.getElementById('modalSpeakerName').textContent = speaker.name;
-      document.getElementById('modalSpeakerTitle').textContent = speaker.mainTitle;
+        document.getElementById("modalSpeakerName").textContent = speaker.name;
+        document.getElementById("modalSpeakerTitle").textContent =
+          speaker.mainTitle;
 
-      document.getElementById('modalSpeakerMeta').innerHTML = `
-        <strong>Formación:</strong> ${escapeHtml(speaker.academicTitle)}<br>
-        <strong>Perfil:</strong> ${escapeHtml(speaker.profile)}
+        document.getElementById("modalSpeakerMeta").innerHTML = `
+        <strong>País:</strong> ${escapeHtml(speaker.country || "— — —")}<br>
+        <strong>Formación:</strong> ${escapeHtml(speaker.academicTitle || "— — —")}<br>
+        <strong>Perfil:</strong> ${escapeHtml(speaker.profile || "— — —")}
       `;
 
-      document.getElementById('modalSpeakerSchedule').innerHTML = buildScheduleHtml(speaker);
+        document.getElementById("modalSpeakerSchedule").innerHTML =
+          buildScheduleHtml(speaker);
 
-      speakerModal.show();
-    }
+        speakerModal.show();
+      }
 
-    document.addEventListener('DOMContentLoaded', function () {
-      speakerModal = new bootstrap.Modal(document.getElementById('speakerModal'));
-      renderSpeakers();
-    });
-  </script>
-</body>
+      document.addEventListener("DOMContentLoaded", function () {
+        speakerModal = new bootstrap.Modal(
+          document.getElementById("speakerModal"),
+        );
+        renderSpeakers();
+      });
+    </script>
+  </body>
 </html>
