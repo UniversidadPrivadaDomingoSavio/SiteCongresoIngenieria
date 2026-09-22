@@ -3,14 +3,86 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Congreso de Inteligencia Artificial y Tecnologías Digitales para la
-      Innovación
-    </title>
+    <title>Ponencias | UPDS INVESTIGA 2026</title>
 
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="icon" type="image/png" href="img/logo_32x32.png" />
+    <style>
+      /* Ajustes exclusivos de la ventana de ponentes. */
+      #speakerModal .modal-dialog {
+        width: calc(100% - 32px);
+        max-width: 1360px;
+        margin: 24px auto;
+      }
+      #speakerModal .modal-content {
+        background: #fff;
+        border-radius: 24px;
+        box-shadow: 0 28px 80px rgba(6, 61, 87, 0.25);
+      }
+      #speakerModal .modal-header {
+        padding: 24px 32px;
+        border-bottom: 1px solid #e3edf3;
+      }
+      #speakerModal .modal-title {
+        color: #063d57;
+        font-size: 1.05rem;
+      }
+      #speakerModal .modal-body {
+        padding: 32px;
+      }
+      #speakerModal .speaker-modal__img {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: 460px;
+        object-fit: contain;
+        border: 1px solid #e3edf3;
+        border-radius: 18px;
+        background: #f3f8fb;
+      }
+      #speakerModal .speaker-modal__name {
+        font-size: clamp(1.5rem, 2vw, 2rem);
+        line-height: 1.2;
+        margin-bottom: 12px;
+      }
+      #speakerModal .speaker-modal__title {
+        font-size: 1.12rem;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
+      #speakerModal .speaker-modal__meta {
+        font-size: 1rem;
+        line-height: 1.8;
+        color: #465e6d;
+        overflow-wrap: anywhere;
+      }
+      #speakerModal .modal-close-x {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        margin-left: 16px;
+      }
+      #speakerModal .modal-close-x:focus-visible {
+        outline: 3px solid #087faa;
+        outline-offset: 3px;
+      }
+      @media (max-width: 575.98px) {
+        #speakerModal .modal-dialog {
+          width: calc(100% - 16px);
+          margin: 8px auto;
+          min-height: calc(100% - 16px);
+          height: calc(100% - 16px);
+        }
+        #speakerModal .modal-header,
+        #speakerModal .modal-body {
+          padding: 20px;
+        }
+        #speakerModal .speaker-modal__img {
+          max-height: 280px;
+        }
+      }
+    </style>
   </head>
 
   <body class="page-ponencias d-flex flex-column h-100">
@@ -43,7 +115,7 @@
 
             <button
               type="button"
-              class="date-tab d-none"
+              class="date-tab"
               onclick="filterPonencias('manana', this)"
             >
               <span class="date-tab__day">Mañana</span>
@@ -51,9 +123,12 @@
 
             <button
               type="button"
-              class="date-tab d-none"
-              onclick="filterPonencias('noche', this)"
+              class="date-tab"
+              onclick="filterPonencias('tarde', this)"
             >
+              <span class="date-tab__day">Tarde</span>
+            </button>
+            <button type="button" class="date-tab" onclick="filterPonencias('noche', this)">
               <span class="date-tab__day">Noche</span>
             </button>
           </div>
@@ -85,7 +160,7 @@
       >
         <div class="modal-content speaker-modal-content border-0">
           <div
-            class="modal-header border-0 pb-0 px-4 pt-4 d-flex justify-content-between align-items-start"
+            class="modal-header d-flex justify-content-between align-items-center"
           >
             <h5 class="modal-title fw-bold" id="speakerModalLabel">
               Detalle del Ponente
@@ -100,9 +175,9 @@
             </button>
           </div>
 
-          <div class="modal-body px-4 pb-4">
-            <div class="row g-4 align-items-start">
-              <div class="col-12 col-lg-5">
+          <div class="modal-body">
+            <div class="row g-4 gx-lg-5 align-items-start">
+              <div class="col-12 col-lg-4">
                 <img
                   id="modalSpeakerImage"
                   class="speaker-modal__img"
@@ -111,7 +186,7 @@
                 />
               </div>
 
-              <div class="col-12 col-lg-7">
+              <div class="col-12 col-lg-8">
                 <div class="speaker-modal__name" id="modalSpeakerName">
                   Nombre del Ponente
                 </div>
@@ -134,172 +209,172 @@
     <script src="js/layout.js"></script>
 
     <script>
-      const fallbackImg = "img/principal/Ponencias.jpg";
+      const fallbackImg = "img/logo.png";
       const fallbackFlag = "img/banderas/bolivia.png";
       let currentFilter = "all";
       let speakerModal = null;
 
       const speakers = [
-        {
-          name: "Ing. José Manuel Vargas Rivera",
-          country: "Brasil",
-          flag: "img/banderas/brasil.png",
-          session: "pendiente",
-          image: "img/ponencias/jose_manuel_vargas_rivera.png",
-          academicTitle: "Ingeniero Industrial",
-          mainTitle:
-            "Supply Chain: la profesión que conecta empresas, personas y oportunidades",
-          profile:
-            "Ingeniero industrial que actualmente desarrolla su carrera profesional en Brasil dentro del área de Supply Chain. Convencido de que la logística es uno de los pilares estratégicos de cualquier organización, comparte experiencias y aprendizajes sobre cómo la cadena de suministro conecta empresas, personas y oportunidades en un mundo cada vez más interconectado.",
-          schedules: [
-            {
-              sessionLabel: "— — —",
-              time: "— — —",
-              title:
-                "Supply Chain: la profesión que conecta empresas, personas y oportunidades",
-            },
-          ],
-        },
-        {
-          name: "Mag. Ing. Ana Pamela Arévalos Ferreira",
-          country: "Paraguay",
-          flag: "img/banderas/paraguay.png",
-          session: "pendiente",
-          image: "img/ponencias/ana_pamela_arevalos_ferreira.jpg",
-          academicTitle:
-            "Magíster en Ingeniería Industrial e Ingeniera Industrial",
-          mainTitle:
-            "Transformación digital en el sector alimentario: Integración de tecnologías 4.0 para la mejora de la inocuidad",
-          profile:
-            "Docente Investigadora en el Departamento de Ingeniería Industrial de la Facultad de Ingeniería de la Universidad Nacional de Asunción (FIUNA), Paraguay. Es Magíster en Ingeniería Industrial e Ingeniera Industrial por la FIUNA, y actualmente se encuentra realizando sus estudios de Doctorado en Ciencias de la Ingeniería en la misma institución. Su área de trabajo se enfoca en temas relacionados a la inocuidad alimentaria desde la perspectiva de la ingeniería industrial, con interés en la integración de tecnologías de la Industria 4.0. Ha participado en proyectos de investigación y cuenta con publicaciones en revistas arbitradas y presentaciones en congresos nacionales e internacionales del área.",
-          schedules: [
-            {
-              sessionLabel: "— — —",
-              time: "— — —",
-              title:
-                "Transformación digital en el sector alimentario: Integración de tecnologías 4.0 para la mejora de la inocuidad",
-            },
-          ],
-        },
-        {
-          name: "Ing. Luis Cristian Torrez La Fuente",
-          country: "Bolivia",
-          flag: "img/banderas/bolivia.png",
-          session: "pendiente",
-          image: "img/ponencias/luis_cristian_torrez_la_fuente.jpg",
-          academicTitle: "Ingeniero Industrial",
-          mainTitle: "El arte del MVP: Pasos para desarrollar un proyecto",
-          profile:
-            "Ingeniero industrial y emprendedor boliviano, cofundador y CEO de Alliox. Especialista en gestión de proyectos, lidera la transformación digital del sector inmobiliario mediante herramientas tecnológicas e innovación, impulsando soluciones estratégicas para dinamizar la economía y la industria a nivel nacional.",
-          schedules: [
-            {
-              sessionLabel: "— — —",
-              time: "— — —",
-              title: "El arte del MVP: Pasos para desarrollar un proyecto",
-            },
-          ],
-        },
-        {
-          name: "Ing. Diego Alejandro Cruz Ortiz",
-          country: "Bolivia",
-          flag: "img/banderas/bolivia.png",
-          session: "pendiente",
-          image: "img/ponencias/diego_alejandro_cruz_ortiz.jpg",
-          academicTitle: "Ingeniero Industrial",
-          mainTitle:
-            "Mantenimiento industrial en planta de acopio de granos - sistemas de transporte",
-          profile:
-            "Ingeniero Industrial y especialista en sistemas de transporte, con experiencia como Asesor Técnico Comercial y Proyectos en ATIMEX Bolivia S.R.L. Con desempeño en el diseño de líneas de sistemas de transporte y plantas agroindustriales, integrando conocimientos técnicos y comerciales para el desarrollo y gestión de soluciones aplicadas a proyectos industriales.",
-          schedules: [
-            {
-              sessionLabel: "— — —",
-              time: "— — —",
-              title:
-                "Mantenimiento industrial en planta de acopio de granos - sistemas de transporte",
-            },
-          ],
-        },
-        {
-          name: "MBA. Ing. Edson Huanca Cayoja",
-          country: "Bolivia",
-          flag: "img/banderas/bolivia.png",
-          session: "pendiente",
-          image: "img/ponencias/edson_huanca_cayoja.png",
-          academicTitle: "Magíster en Administración de Negocios",
-          mainTitle:
-            "El futuro se mueve en toneladas: inteligencia predictiva para transformar la logística de granos.",
-          profile:
-            "Magíster en Administración de Negocios (UAGRM) y especialista en Agronegocios (Agroeducación Argentina). Doctorante en Investigación Científica (UAGRM), con experiencia en gestión industrial, innovación, análisis de datos, riesgos productivos y mercados de futuros aplicados al sector agroindustrial.",
-          schedules: [
-            {
-              sessionLabel: "— — —",
-              time: "— — —",
-              title:
-                "El futuro se mueve en toneladas: inteligencia predictiva para transformar la logística de granos.",
-            },
-          ],
-        },
-        {
-          name: "Ing. Leonardo Egüez Rosas",
-          country: "Bolivia",
-          flag: "img/banderas/bolivia.png",
-          session: "pendiente",
-          image: "img/ponencias/leonardo_eguez_rosas.png",
-          academicTitle: "Ingeniero",
-          mainTitle:
-            "¿Por qué los Proyectos Tecnológicos Necesitan Ingenieros Industriales?",
-          profile:
-            "Líder Estratégico en Transformación Digital con amplia trayectoria dirigiendo implementaciones de Odoo ERP a nivel internacional. Experto en metodologías oficiales de Odoo, certificado en las versiones 17 y 18, con un historial comprobado de más de 20 proyectos ejecutados e implementados y cierre exitoso de proyectos de gran escala. Especialista en la apertura de mercados regionales y el liderazgo de equipos multidisciplinarios (funcional y desarrollo) para maximizar el ROI de los clientes.",
-          schedules: [
-            {
-              sessionLabel: "— — —",
-              time: "— — —",
-              title:
-                "¿Por qué los Proyectos Tecnológicos Necesitan Ingenieros Industriales?",
-            },
-          ],
-        },
-        {
-          name: "PhD. Ing. Sonia Romina Niezwida",
-          country: "Argentina",
-          flag: "img/banderas/Argentina.png",
-          session: "pendiente",
-          image: "img/ponencias/sonia_romina_niezwida.jpg",
-          academicTitle: "Doctora en Ingeniería Industrial",
-          mainTitle:
-            "Economía Circular: Ingeniería para transformar residuos en oportunidades",
-          profile:
-            "Ingeniera Industrial (2018). Doctora en Ingeniería Industrial (2026). Desarrolló su tesis doctoral sobre la gestión de residuos sólidos en municipios y micro-regiones mediante el Consejo Nacional de Investigaciones Científicas y Técnicas (CONICET) de Argentina y la Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES) de Brasil. Actualmente: Docente, investigadora y extensionista universitaria de la Universidad Nacional de Misiones (UNaM) de la provincia de Misiones, Argentina. Desarrolla sus investigaciones relacionadas con la gestión ambiental y huella de carbono en organizaciones, enfocada en modelizaciones para mejorar la gestión de residuos en municipios y PyMES, articulando laboratorios del Instituto de la Facultad de Ingeniería (IFI), Misiones, Argentina.",
-          schedules: [
-            {
-              sessionLabel: "— — —",
-              time: "— — —",
-              title:
-                "Economía Circular: Ingeniería para transformar residuos en oportunidades",
-            },
-          ],
-        },
-        {
-          name: "MCs. Ing. Zorel Gómez Vargas",
-          country: "Bolivia",
-          flag: "img/banderas/bolivia.png",
-          session: "pendiente",
-          image: "img/ponencias/zorel_gomez_vargas.png",
-          academicTitle: "Ingeniera Industrial",
-          mainTitle:
-            "Gestión estratégica de la I+D+i en carreras de Ingeniería: de proyectos aislados a ecosistemas de innovación",
-          profile:
-            "Ingeniera Industrial con formación especializada en Sistemas de Calidad y Productividad, y experiencia profesional en los sectores médico, aeroespacial y automotriz, además de consultoría en Excelencia Operacional. Actualmente se desempeña como docente investigadora de Ingeniería Industrial en la Universidad Católica Boliviana “San Pablo”, Sede Santa Cruz, donde ha impulsado sociedades científicas estudiantiles, grupos y centros de investigación, así como proyectos de cooperación internacional. Actualmente coordina un subproyecto de soberanía alimentaria e innovación nutricional en la Chiquitania boliviana y culmina su doctorado en la Universidad de Gante, Bélgica. Su investigación se orienta a los sistemas alimentarios, la seguridad alimentaria y la resiliencia de hogares chiquitanos e interculturales, desde un enfoque transdisciplinario.",
-          schedules: [
-            {
-              sessionLabel: "— — —",
-              time: "— — —",
-              title:
-                "Gestión estratégica de la I+D+i en carreras de Ingeniería: de proyectos aislados a ecosistemas de innovación",
-            },
-          ],
-        },
-      ];
+  {
+    "name": "Ruth Koria Saracho",
+    "country": "Bolivia",
+    "flag": "img/banderas/bolivia.png",
+    "session": "tarde",
+    "image": "img/ponencias/Ruth Koria Saracho.jpg",
+    "academicTitle": "Médico Cirujano",
+    "area": "Ciencias de la Salud",
+    "mainTitle": "Características sociodemográficas y clínicas, e indicadores de bienestar y autocuidado, en personas con VIH en seguimiento en el SSU",
+    "profile": "Médico Cirujano, docente universitaria y profesional en formación de posgrado en Salud Pública, con experiencia en atención médica, docencia, epidemiología, investigación e interacción social. Desde 2022 se desempeña como docente de la Facultad de Ciencias de la Salud de la Universidad Privada Domingo Savio y como Coordinadora de Interacción Social en Salud. Cuenta con formación en Educación Superior y Metodologías Activas, experiencia en acompañamiento de proyectos de investigación estudiantil y participación en procesos de autoevaluación y Acreditación MERCOSUR de la Carrera de Medicina.",
+    "schedules": [
+      {
+        "sessionLabel": "20 de octubre de 2026 · Tarde",
+        "time": "Por confirmar",
+        "title": "Características sociodemográficas y clínicas, e indicadores de bienestar y autocuidado, en personas con VIH en seguimiento en el SSU"
+      }
+    ]
+  },
+  {
+    "name": "Dra. Wara Salinas",
+    "country": "Chile",
+    "flag": "img/banderas/chile.png",
+    "session": "tarde",
+    "image": "img/ponencias/Wara Salinas.jpg",
+    "academicTitle": "Médica cirujana",
+    "area": "Ciencias de la Salud",
+    "mainTitle": "Rol de las vitaminas para regular la neuroinflamación presente en modelos de autismo",
+    "profile": "Médica cirujana egresada de la Universidad Mayor de San Andrés (UMSA, Bolivia), con formación especializada en investigación médica por la Universidad Europea del Atlántico (España). Actualmente cursa el Magíster en Ciencias Biomédicas en la Universidad Católica de la Santísima Concepción (Chile), con orientación en neurociencias. Su trayectoria se centra en los mecanismos celulares y moleculares de la neuroinflamación y neurodegeneración. Fue Presidenta de la Sociedad Científica Estudiantil de Medicina de la UMSA y Directora Internacional de CPEDEC-FELSOCEM, con experiencia en publicaciones científicas y congresos internacionales.",
+    "schedules": [
+      {
+        "sessionLabel": "20 de octubre de 2026 · Tarde",
+        "time": "Por confirmar",
+        "title": "Rol de las vitaminas para regular la neuroinflamación presente en modelos de autismo"
+      }
+    ]
+  },
+  {
+    "name": "Guillermo Julio Salvatierra Reyes",
+    "country": "Bolivia",
+    "flag": "img/banderas/bolivia.png",
+    "session": "tarde",
+    "image": "img/ponencias/Guillermo Julio Salvatierra Reyes.jpg",
+    "academicTitle": "Estudiante de Derecho",
+    "area": "Ciencias Jurídicas",
+    "mainTitle": "La Inteligencia Artificial y su posible aplicación en la administración de justicia en Bolivia",
+    "profile": "Estudiante de 4to semestre de la carrera de Derecho de la Universidad Privada Domingo Savio, de 20 años, con 6 meses de experiencia como locutor y presentador en el programa Tacuareando de Radio Comercio 90.4 FM. Cursó el III Coaching Inductivo al Litigio Oral Penal (UPDS) y el Curso de Inteligencia Artificial aplicada al periodismo (UNIFRANZ).",
+    "schedules": [
+      {
+        "sessionLabel": "21 de octubre de 2026 · Tarde",
+        "time": "Por confirmar",
+        "title": "La Inteligencia Artificial y su posible aplicación en la administración de justicia en Bolivia"
+      }
+    ]
+  },
+  {
+    "name": "Róssely Royo Algarañaz",
+    "country": "Bolivia",
+    "flag": "img/banderas/bolivia.png",
+    "session": "tarde",
+    "image": "img/ponencias/Róssely Royo Algarañaz.jpg",
+    "academicTitle": "Estudiante de Derecho",
+    "area": "Ciencias Jurídicas",
+    "mainTitle": "La violencia intrafamiliar en Bolivia: distancia entre el marco jurídico y su aplicación práctica",
+    "profile": "Estudiante de Derecho, integrante del Semillero de Investigación de Ciencias Jurídicas, con genuino interés por la investigación y el análisis de problemáticas sociales desde una perspectiva jurídica. Cuenta con un trabajo investigativo de tesina sobre el declive de la salud mental en los jóvenes de Santa Cruz, lo que refleja su compromiso con temas de relevancia social. Participa activamente en espacios de formación e investigación que fortalecen su perfil académico y su vocación por generar conocimiento aplicado a la realidad boliviana.",
+    "schedules": [
+      {
+        "sessionLabel": "21 de octubre de 2026 · Tarde",
+        "time": "Por confirmar",
+        "title": "La violencia intrafamiliar en Bolivia: distancia entre el marco jurídico y su aplicación práctica"
+      }
+    ]
+  },
+  {
+    "name": "Marcial Villarroel Siles",
+    "country": "Bolivia",
+    "flag": "img/banderas/bolivia.png",
+    "session": "manana",
+    "image": "img/ponencias/Marcial Villarroel Siles.jpg",
+    "academicTitle": "Doctorado y Maestría en Educación Superior; Licenciado en Economía",
+    "area": "Ciencias Sociales",
+    "mainTitle": "Crisis ontológica de los modelos educativos mecanicistas: hacia una reestructuración epistémica basada en la teoría del \"universo consciente\"",
+    "profile": "Analista financiero y autor con residencia en Barcelona y Bolivia. Prolífico escritor con 56 títulos en seis años, más de 275 publicaciones editadas en ocho idiomas y distribuidas en 30 países. Doctorado y Maestría en Educación Superior (EMI); Magíster en Banca y Finanzas y Licenciado en Economía (UAGRM/UCB). Autor editorial (KDP Penguin Random House); Gerente de Desarrollo en JICA; Analista Financiero Corporativo en Banco Santander. Evaluador de comités editoriales en revistas científicas indexadas, miembro de la Academia Boliviana de Ciencias Criminológicas y docente invitado de posgrado en UPDS, EMI y otras universidades.",
+    "schedules": [
+      {
+        "sessionLabel": "21 de octubre de 2026 · Mañana",
+        "time": "Por confirmar",
+        "title": "Crisis ontológica de los modelos educativos mecanicistas: hacia una reestructuración epistémica basada en la teoría del \"universo consciente\""
+      }
+    ]
+  },
+  {
+    "name": "Paola Alemán Valdivia",
+    "country": "Bolivia",
+    "flag": "img/banderas/bolivia.png",
+    "session": "manana",
+    "image": "img/ponencias/Paola Alemán Valdivia.jpg",
+    "academicTitle": "Licenciada en Psicopedagogía",
+    "area": "Ciencias Sociales",
+    "mainTitle": "Competencias digitales y rendimiento académico en estudiantes de nuevo ingreso de la Facultad de Ciencias Sociales",
+    "profile": "Psicopedagoga, Licenciada en Psicopedagogía por la Universidad Privada Domingo Savio (UPDS). Cuenta con diplomados en Docencia Universitaria Basada en Formación por Competencias (2022), Educación Superior y Gestión Académica e Innovación (2024), Innovación Tecnológica en Educación Superior (2024), Acreditación e Investigación Científica en Educación Superior (2025), e Intervención y Evaluación Psicopedagógica (UAGRM, 2024), además de la Especialidad en Estimulación e Intervención en Educación Especial (UAGRM, 2024). Actualmente cursa la Maestría en Educación Superior orientada a la Investigación e Innovación (UPDS), con perfil de tesis presentado y en espera de corrección para su defensa. Cuenta con publicaciones indexadas en ResearchGate y un artículo en revisión para la Revista Taikuere sobre competencias digitales y rendimiento académico universitario.",
+    "schedules": [
+      {
+        "sessionLabel": "21 de octubre de 2026 · Mañana",
+        "time": "Por confirmar",
+        "title": "Competencias digitales y rendimiento académico en estudiantes de nuevo ingreso de la Facultad de Ciencias Sociales"
+      }
+    ]
+  },
+  {
+    "name": "Edson Huanca Cayoja",
+    "country": "Bolivia",
+    "flag": "img/banderas/bolivia.png",
+    "session": "noche",
+    "image": "img/ponencias/Edson Huanca Cayoja.jpg",
+    "academicTitle": "Magíster en Administración de Negocios",
+    "area": "Ingeniería y tecnología",
+    "mainTitle": "Inteligencia de riesgos aplicada al transporte ferroviario de granos",
+    "profile": "Magíster en Administración de Negocios (UAGRM) y especialista en Agronegocios (Agroeducación Argentina). Doctorante en Investigación Científica (UAGRM), con experiencia en gestión industrial, innovación, análisis de datos, riesgos productivos y mercados de futuros aplicados al sector agroindustrial.",
+    "schedules": [
+      {
+        "sessionLabel": "20 de octubre de 2026 · Noche",
+        "time": "Por confirmar",
+        "title": "Inteligencia de riesgos aplicada al transporte ferroviario de granos"
+      }
+    ]
+  },
+  {
+    "name": "Luis Cristian Torrez La Fuente",
+    "country": "Bolivia",
+    "flag": "img/banderas/bolivia.png",
+    "session": "noche",
+    "image": "img/ponencias/Luis Cristian Torrez La Fuente.jpg",
+    "academicTitle": "Ingeniero industrial",
+    "area": "Ingeniería y tecnología",
+    "mainTitle": "Modelado optimizado de una micro-planta de drones de reforestación: parámetros operativos para la certificación y obtención de bonos de carbono",
+    "profile": "Ingeniero industrial y emprendedor boliviano, cofundador y CEO de Alliox. Especialista en gestión de proyectos, lidera la transformación digital del sector inmobiliario mediante herramientas tecnológicas e innovación, impulsando soluciones estratégicas para dinamizar la economía y la industria a nivel nacional.",
+    "schedules": [
+      {
+        "sessionLabel": "20 de octubre de 2026 · Noche",
+        "time": "Por confirmar",
+        "title": "Modelado optimizado de una micro-planta de drones de reforestación: parámetros operativos para la certificación y obtención de bonos de carbono"
+      }
+    ]
+  }
+];
+
+      // Fotos: nombre exacto del ponente sin tratamiento, con espacios y tildes.
+      // Ejemplo: img/ponencias/Paola Alemán Valdivia.jpg
+      function trySpeakerImage(img) {
+        const speaker = speakers[Number(img.dataset.speakerIndex)];
+        const extensions = ["jpg", "png", "jpeg", "webp"];
+        const attempt = Number(img.dataset.imageAttempt || 0) + 1;
+        img.dataset.imageAttempt = String(attempt);
+        if (speaker && attempt < extensions.length) {
+          img.src = encodeURI(speaker.image.slice(0, -4) + "." + extensions[attempt]);
+        } else {
+          img.onerror = null;
+          img.src = fallbackImg;
+        }
+      }
 
       function escapeHtml(text) {
         if (!text) return "";
@@ -336,10 +411,10 @@
           <div class="card workshop-card h-100 border-0 shadow-sm">
             <div class="position-relative">
               <img 
-                src="${escapeHtml(speaker.image || fallbackImg)}" 
+                src="${escapeHtml(encodeURI(speaker.image || fallbackImg))}" 
                 class="card-img-top workshop-img" 
                 alt="${escapeHtml(speaker.name)}" 
-                onerror="this.onerror=null; this.src='${fallbackImg}'"
+                data-speaker-index="${index}" data-image-attempt="0" onerror="trySpeakerImage(this)"
               >
 
               <div class="speaker-badge" title="${escapeHtml(speaker.country || "País")}" aria-label="${escapeHtml(speaker.country || "País")}">
@@ -352,7 +427,7 @@
             </div>
 
             <div class="card-body p-4 d-flex flex-column">
-              <div class="speaker-subtitle">${escapeHtml(speaker.academicTitle)}</div>
+              <div class="speaker-subtitle">${escapeHtml(speaker.area)}</div>
               <h5 class="card-title fw-bold">${escapeHtml(getCardTitle(speaker))}</h5>
               <p class="card-text small flex-grow-1 mb-0">${escapeHtml(getCardSubtitle(speaker))}</p>
 
@@ -419,12 +494,11 @@
 
         const modalImage = document.getElementById("modalSpeakerImage");
 
-        modalImage.onerror = function () {
-          this.onerror = null;
-          this.src = fallbackImg;
-        };
-
-        modalImage.src = speaker.image || fallbackImg;
+        modalImage.dataset.speakerIndex = String(index);
+        modalImage.dataset.imageAttempt = "0";
+        modalImage.alt = speaker.name;
+        modalImage.onerror = function () { trySpeakerImage(this); };
+        modalImage.src = encodeURI(speaker.image || fallbackImg);
 
         document.getElementById("modalSpeakerName").textContent = speaker.name;
         document.getElementById("modalSpeakerTitle").textContent =
@@ -432,6 +506,7 @@
 
         document.getElementById("modalSpeakerMeta").innerHTML = `
         <strong>País:</strong> ${escapeHtml(speaker.country || "— — —")}<br>
+        <strong>Área:</strong> ${escapeHtml(speaker.area)}<br>
         <strong>Formación:</strong> ${escapeHtml(speaker.academicTitle || "— — —")}<br>
         <strong>Perfil:</strong> ${escapeHtml(speaker.profile || "— — —")}
       `;
